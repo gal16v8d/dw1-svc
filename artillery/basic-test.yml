@@ -1,0 +1,41 @@
+config:
+  plugins:
+    expect: {}
+  phases:
+    - duration: 1
+      arrivalRate: 1
+  ensure:
+    maxErrorRate: 0
+  http:
+    timeout: 30
+  environments:
+    local:
+      target: 'http://localhost:8100/dw1/api'
+    prod:
+      target: 'https://protected-crag-80096.herokuapp.com/dw1/api'
+scenarios:
+  - flow:
+      - get:
+          name: 'Health check'
+          url: '/health'
+          expect:
+            - statusCode: 200
+      - get:
+          name: 'Card Listing'
+          url: '/cards'
+          expect:
+            - statusCode: 200
+            - contentType: json
+      - get:
+          name: 'Card You'
+          url: '/cards/617e13e0865f0a80c9b3f92e'
+          capture:
+            - json: '$.name'
+              as: name
+          expect:
+            - statusCode: 200
+            - contentType: json
+            - hasProperty: name
+            - equals:
+                - 'You'
+                - '{{ name }}'

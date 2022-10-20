@@ -1,0 +1,80 @@
+[
+  {
+    "_id": "617e13e0865f0a80c9b3f92e",
+    "number": 0,
+    "name": "You",
+    "exchangeable": false
+  },
+  {
+    "_id": "617e140a865f0a80c9b3f930",
+    "number": 1,
+    "name": "Phoenixmon",
+    "point": 100,
+    "price": 2500,
+    "exchangeable": true
+  },
+  {
+    "_id": "617e14ac865f0a80c9b3f932",
+    "number": 2,
+    "name": "H-Kabuterimon",
+    "point": 100,
+    "price": 2500,
+    "exchangeable": true
+  },
+  {
+    "_id": "617e14bc865f0a80c9b3f934",
+    "number": 3,
+    "name": "MegaSeadramon",
+    "point": 100,
+    "price": 2500,
+    "exchangeable": true
+  },
+  {
+    "_id": "617e14d4865f0a80c9b3f936",
+    "number": 4,
+    "name": "ShogunGekomon",
+    "point": 100,
+    "price": 2500,
+    "exchangeable": true
+  },
+  {
+    "_id": "617e15ab865f0a80c9b3f938",
+    "number": 5,
+    "name": "Myotismon",
+    "point": 100,
+    "price": 2500,
+    "exchangeable": true
+  },
+  {
+    "_id": "617e15c4865f0a80c9b3f93a",
+    "number": 6,
+    "name": "MetalGreymon",
+    "point": 30,
+    "price": 750,
+    "exchangeable": true
+  },
+  {
+    "_id": "617e15d2865f0a80c9b3f93c",
+    "number": 7,
+    "name": "Mamemon",
+    "point": 30,
+    "price": 750,
+    "exchangeable": true
+  },
+  {
+    "_id": "617e15de865f0a80c9b3f93e",
+    "number": 8,
+    "name": "Monzaemon",
+    "point": 30,
+    "price": 750,
+    "exchangeable": true
+  },
+  {
+    "_id": "617e15ea865f0a80c9b3f940",
+    "number": 9,
+    "name": "SkullGreymon",
+    "point": 30,
+    "price": 750,
+    "exchangeable": true
+  }
+]

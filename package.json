@@ -1,0 +1,52 @@
+{
+  "name": "dw1-svc",
+  "version": "1.0.0",
+  "description": "dw1 API",
+  "main": "index.js",
+  "engines": {
+    "node": "16.17.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/app.ts",
+    "start:dev": "nodemon src/app.ts",
+    "test": "jest --detectOpenHandles -c ./jest.unit.json",
+    "test:coverage": "jest --coverage -c ./jest.unit.json",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint src/",
+    "lint-fix": "eslint src/ --fix"
+  },
+  "author": "gal16v8d",
+  "license": "MIT",
+  "dependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.6",
+    "@types/npmlog": "^4.1.3",
+    "@types/supertest": "^2.0.11",
+    "axios": "^0.23.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^6.6.0",
+    "helmet": "^4.6.0",
+    "jest": "^27.3.1",
+    "mongoose": "^6.0.12",
+    "npmlog": "^5.0.1",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.7",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.14",
+    "prettier": "^2.4.1"
+  }
+}
