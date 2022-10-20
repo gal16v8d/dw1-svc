@@ -4,7 +4,7 @@
   "description": "dw1 API",
   "main": "index.js",
   "engines": {
-    "node": "16.17.1"
+    "node": ">=16.17.0 < 17.0.0"
   },
   "scripts": {
     "build": "tsc",
