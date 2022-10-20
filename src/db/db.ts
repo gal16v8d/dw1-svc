@@ -6,7 +6,7 @@ import constants from '../constant/constant';
 const connectDB = async () => {
   await connect(config.server.db)
     .then(() =>
-      npmlog.info(constants.LOG.ROOT, `DB '${config.server.db}' is connected`)
+      npmlog.info(constants.LOG.ROOT, `DB  is UP`)
     )
     .catch((err) =>
       npmlog.error(constants.LOG.ROOT, `can not connect to db error: ${err}`)
