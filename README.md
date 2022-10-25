@@ -49,15 +49,13 @@ $ npm run test:cov
 
 ### Artillery tests
 
-Go under [artillery](https://www.artillery.io/) folder inside this project, then you can run it locally
-or targeting prod env.
+- Go under artillery folder inside this project.
+- Install [artillery](https://www.artillery.io/) and artillery-plugin-expect globally.
+- Then run by:
 
 ```bash
 # basic test
-$ npm start
-
-# basic prod start
-$ npm run start:prod
+$ artillery run -e _env-name_ basic-test.yml
 ```
 
 ## Stay in touch
