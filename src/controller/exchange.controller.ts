@@ -1,7 +1,18 @@
-import exchangeModel from '../model/exchange';
-import constants from '../constant/constant';
-import GenericController from './generic.controller';
+import { Controller } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { CONSTANTS } from '../const/dw1.const';
+import { ExchangeDto } from '../model/dto/exchange.dto';
+import { Exchange } from '../model/schema/exchange.schema';
+import { ExchangeService } from '../service/exchange.service';
+import { GenericController } from './generic.controller';
 
-class ExchangeController extends GenericController {}
-
-export default new ExchangeController(exchangeModel, constants.DB.EXCHANGE);
+@ApiTags(`${CONSTANTS.DB.EXCHANGE} controller`)
+@Controller(`${CONSTANTS.DB.EXCHANGE}s`)
+export class ExchangeController extends GenericController<
+  Exchange,
+  ExchangeDto
+> {
+  constructor(private readonly exchangeService: ExchangeService) {
+    super(exchangeService);
+  }
+}

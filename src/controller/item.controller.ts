@@ -1,15 +1,15 @@
-import { PopulateOptions } from 'mongoose';
-import constants from '../constant/constant';
-import itemModel from '../model/item';
-import GenericController from './generic.controller';
+import { Controller } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { CONSTANTS } from '../const/dw1.const';
+import { ItemDto } from '../model/dto/item.dto';
+import { Item } from '../model/schema/item.schema';
+import { ItemService } from '../service/item.service';
+import { GenericController } from './generic.controller';
 
-class ItemController extends GenericController {}
-
-const populateOpts: PopulateOptions[] = [
-  {
-    path: constants.DB.LOCATION,
-    select: constants.ATTRIB.NAME,
-  },
-];
-
-export default new ItemController(itemModel, constants.DB.ITEM, populateOpts);
+@ApiTags(`${CONSTANTS.DB.ITEM} controller`)
+@Controller(`${CONSTANTS.DB.ITEM}s`)
+export class ItemController extends GenericController<Item, ItemDto> {
+  constructor(private readonly itemService: ItemService) {
+    super(itemService);
+  }
+}

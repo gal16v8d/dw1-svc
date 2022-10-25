@@ -10,9 +10,11 @@ config:
     timeout: 30
   environments:
     local:
-      target: 'http://localhost:8100/dw1/api'
+      target: 'http://localhost:8100'
     prod:
-      target: 'https://protected-crag-80096.herokuapp.com/dw1/api'
+      target: 'https://dw1-svc-production.up.railway.app'
+    prod-heroku:
+      target: 'https://protected-crag-80096.herokuapp.com'
 scenarios:
   - flow:
       - get:
@@ -22,13 +24,13 @@ scenarios:
             - statusCode: 200
       - get:
           name: 'Card Listing'
-          url: '/cards'
+          url: '/dw1/api/cards'
           expect:
             - statusCode: 200
             - contentType: json
       - get:
           name: 'Card You'
-          url: '/cards/617e13e0865f0a80c9b3f92e'
+          url: '/dw1/api/cards/617e13e0865f0a80c9b3f92e'
           capture:
             - json: '$.name'
               as: name

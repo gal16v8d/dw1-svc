@@ -1,15 +1,15 @@
-import { PopulateOptions } from 'mongoose';
-import constants from '../constant/constant';
-import techModel from '../model/tech';
-import GenericController from './generic.controller';
+import { Controller } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { CONSTANTS } from '../const/dw1.const';
+import { TechDto } from '../model/dto/tech.dto';
+import { Tech } from '../model/schema/tech.schema';
+import { TechService } from '../service/tech.service';
+import { GenericController } from './generic.controller';
 
-class TechController extends GenericController {}
-
-const populateOpts: PopulateOptions[] = [
-  {
-    path: constants.DB.ELEMENT,
-    select: constants.ATTRIB.NAME,
-  },
-];
-
-export default new TechController(techModel, constants.DB.TECH, populateOpts);
+@ApiTags(`${CONSTANTS.DB.TECH} controller`)
+@Controller(`${CONSTANTS.DB.TECH}s`)
+export class TechController extends GenericController<Tech, TechDto> {
+  constructor(private readonly techService: TechService) {
+    super(techService);
+  }
+}

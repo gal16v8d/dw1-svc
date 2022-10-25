@@ -1,23 +1,15 @@
-import { PopulateOptions } from 'mongoose';
-import constants from '../constant/constant';
-import recruitModel from '../model/recruit';
-import GenericController from './generic.controller';
+import { Controller } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { CONSTANTS } from '../const/dw1.const';
+import { RecruitDto } from '../model/dto/recruit.dto';
+import { Recruit } from '../model/schema/recruit.schema';
+import { RecruitService } from '../service/recruit.service';
+import { GenericController } from './generic.controller';
 
-class RecruitController extends GenericController {}
-
-const populateOpts: PopulateOptions[] = [
-  {
-    path: constants.DB.DIGIMON,
-    select: constants.ATTRIB.NAME,
-  },
-  {
-    path: constants.DB.LOCATION,
-    select: constants.ATTRIB.NAME,
-  },
-];
-
-export default new RecruitController(
-  recruitModel,
-  constants.DB.RECRUIT,
-  populateOpts
-);
+@ApiTags(`${CONSTANTS.DB.RECRUIT} controller`)
+@Controller(`${CONSTANTS.DB.RECRUIT}s`)
+export class RecruitController extends GenericController<Recruit, RecruitDto> {
+  constructor(private readonly recruitService: RecruitService) {
+    super(recruitService);
+  }
+}

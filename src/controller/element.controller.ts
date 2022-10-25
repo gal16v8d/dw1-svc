@@ -1,7 +1,18 @@
-import elementModel from '../model/element';
-import constants from '../constant/constant';
-import GenericController from './generic.controller';
+import { Controller } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { CONSTANTS } from '../const/dw1.const';
+import { NameInputDto } from '../model/dto/name.input.dto';
+import { Element } from '../model/schema/element.schema';
+import { ElementService } from '../service/element.service';
+import { GenericController } from './generic.controller';
 
-class ElementController extends GenericController {}
-
-export default new ElementController(elementModel, constants.DB.ELEMENT);
+@ApiTags(`${CONSTANTS.DB.ELEMENT} controller`)
+@Controller(`${CONSTANTS.DB.ELEMENT}s`)
+export class ElementController extends GenericController<
+  Element,
+  NameInputDto
+> {
+  constructor(private readonly elementService: ElementService) {
+    super(elementService);
+  }
+}

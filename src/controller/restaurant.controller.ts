@@ -1,23 +1,18 @@
-import { PopulateOptions } from 'mongoose';
-import constants from '../constant/constant';
-import restaurantModel from '../model/restaurant';
-import GenericController from './generic.controller';
+import { Controller } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { CONSTANTS } from '../const/dw1.const';
+import { RestaurantDto } from '../model/dto/restaurant.dto';
+import { Restaurant } from '../model/schema/restaurant.schema';
+import { RestaurantService } from '../service/restaurant.service';
+import { GenericController } from './generic.controller';
 
-class RestaurantController extends GenericController {}
-
-const populateOpts: PopulateOptions[] = [
-  {
-    path: constants.DB.DIGIMON,
-    select: constants.ATTRIB.NAME,
-  },
-  {
-    path: constants.DB.RESTAURANT_FOOD,
-    select: constants.ATTRIB.NAME,
-  },
-];
-
-export default new RestaurantController(
-  restaurantModel,
-  constants.DB.RESTAURANT,
-  populateOpts
-);
+@ApiTags(`${CONSTANTS.DB.RESTAURANT} controller`)
+@Controller(`${CONSTANTS.DB.RESTAURANT}s`)
+export class RestaurantController extends GenericController<
+  Restaurant,
+  RestaurantDto
+> {
+  constructor(private readonly restaurantService: RestaurantService) {
+    super(restaurantService);
+  }
+}
