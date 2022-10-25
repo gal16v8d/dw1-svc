@@ -9,6 +9,7 @@
   "scripts": {
     "start": "artillery run -e local basic-test.yml",
     "start:prod": "artillery run -e prod basic-test.yml",
+    "start:prod-heroku": "artillery run -e prod-heroku basic-test.yml",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "gal16v8d",

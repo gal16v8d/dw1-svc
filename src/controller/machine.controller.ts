@@ -1,19 +1,15 @@
-import { PopulateOptions } from 'mongoose';
-import constants from '../constant/constant';
-import machineModel from '../model/machine';
-import GenericController from './generic.controller';
+import { Controller } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { CONSTANTS } from '../const/dw1.const';
+import { MachineDto } from '../model/dto/machine.dto';
+import { Machine } from '../model/schema/machine.schema';
+import { MachineService } from '../service/machine.service';
+import { GenericController } from './generic.controller';
 
-class MachineController extends GenericController {}
-
-const populateOpts: PopulateOptions[] = [
-  {
-    path: constants.DB.LOCATION,
-    select: constants.ATTRIB.NAME,
-  },
-];
-
-export default new MachineController(
-  machineModel,
-  constants.DB.MACHINE,
-  populateOpts
-);
+@ApiTags(`${CONSTANTS.DB.MACHINE} controller`)
+@Controller(`${CONSTANTS.DB.MACHINE}s`)
+export class MachineController extends GenericController<Machine, MachineDto> {
+  constructor(private readonly machineService: MachineService) {
+    super(machineService);
+  }
+}

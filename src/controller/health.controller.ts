@@ -1,9 +1,16 @@
-import { RequestHandler } from 'express';
+import { Controller, Get } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { SkipThrottle } from '@nestjs/throttler';
+import { HealthService } from '../service/health.service';
 
-class HealthController {
-  public check: RequestHandler = (req, res) => {
-    res.status(200).json();
-  };
+@SkipThrottle()
+@ApiTags('health controller')
+@Controller('health')
+export class HealthController {
+  constructor(private readonly healthService: HealthService) {}
+
+  @Get()
+  getHello(): string {
+    return this.healthService.getHello();
+  }
 }
-
-export default new HealthController();

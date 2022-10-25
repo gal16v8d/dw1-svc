@@ -1,95 +1,78 @@
-import { Request, RequestHandler, Response } from 'express';
-import { Model, PopulateOptions } from 'mongoose';
+import {
+  Body,
+  DefaultValuePipe,
+  Delete,
+  Get,
+  HttpCode,
+  HttpStatus,
+  NotFoundException,
+  Param,
+  ParseBoolPipe,
+  Post,
+  Put,
+  Query,
+} from '@nestjs/common';
+import { GenericService } from '../service/generic.service';
 
-class GenericController {
-  model: Model<
-    unknown,
-    Record<string, unknown>,
-    Record<string, unknown>,
-    Record<string, unknown>
-  >;
-  dataType: string;
-  populateOpts?: PopulateOptions[];
+/**
+ * Include the basic CRUD operations for any controller.
+ *
+ * @param S schema related data object
+ * @param R request data
+ */
+export class GenericController<S, R> {
+  constructor(private readonly service: GenericService<S, R>) {}
 
-  constructor(
-    model: Model<
-      unknown,
-      Record<string, unknown>,
-      Record<string, unknown>,
-      Record<string, unknown>
-    >,
-    dataType: string,
-    populateOpts?: PopulateOptions[]
-  ) {
-    this.model = model;
-    this.dataType = dataType;
-    this.populateOpts = populateOpts;
+  @Post()
+  async create(@Body() requestData: R) {
+    await this.service.create(requestData);
   }
 
-  populateData = (data: unknown, expanded: boolean) => {
-    return expanded && this.populateOpts
-      ? this.model.populate(data, this.populateOpts ?? [])
-      : data;
-  };
+  @Get()
+  async findAll(
+    @Query(
+      'expanded',
+      new DefaultValuePipe(false),
+      new ParseBoolPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
+    )
+    expanded: boolean,
+  ): Promise<S[]> {
+    return this.service.findAll(expanded);
+  }
 
-  public getAll: RequestHandler = async (req, res) => {
-    const expanded = req.query.lvl && Number(req.query.lvl) >= 1;
-    await this.model
-      .find()
-      .then((data) => this.populateData(data, !!expanded))
-      .then((dataArr) => res.json(dataArr))
-      .catch((err) => res.status(500).json({ message: err.stack }));
-  };
+  @Get(':id')
+  async findOne(
+    @Param('id') id: string,
+    @Query(
+      'expanded',
+      new DefaultValuePipe(false),
+      new ParseBoolPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
+    )
+    expanded: boolean,
+  ): Promise<S> {
+    const data = await this.service.findOne(id, expanded);
+    this.checkExistence(data);
+    return data;
+  }
 
-  checkFindOne = (data: unknown, req: Request, res: Response) => {
+  @Put(':id')
+  async update(@Param('id') id: string, @Body() requestData: R): Promise<S> {
+    const data = await this.service.update(id, requestData);
+    this.checkExistence(data);
+    return data;
+  }
+
+  @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async delete(@Param('id') id: string) {
+    const data = await this.service.delete(id);
+    this.checkExistence(data);
+    return data;
+  }
+
+  private checkExistence(data: S) {
     if (!data) {
-      res.status(404).json({
-        message: `Couldn't find any ${this.dataType} with id ${req.params.id}`,
-      });
-    } else {
-      res.json(data);
+      throw new NotFoundException();
     }
-  };
-
-  public getById: RequestHandler = async (req, res) => {
-    const expanded = req.query.lvl && Number(req.query.lvl) >= 1;
-    await this.model
-      .findById(req.params.id)
-      .then((data) => this.populateData(data, !!expanded))
-      .then((data) => this.checkFindOne(data, req, res))
-      .catch((err) => res.status(500).json({ message: err.stack }));
-  };
-
-  public save: RequestHandler = async (req, res) => {
-    await this.model
-      .create(req.body)
-      .then((answer) =>
-        res.status(201).json({
-          message: req.body.name
-            ? `'${req.body.name}' stored successfully with id: ${answer._id}`
-            : `stored successfully with id: ${answer._id}`,
-        })
-      )
-      .catch((err) => res.status(500).json({ message: err.stack }));
-  };
-
-  public update: RequestHandler = async (req, res) => {
-    await this.model
-      .findByIdAndUpdate(req.params.id, req.body)
-      .then(() =>
-        res.json({ message: `${req.params.id} updated successfully` })
-      )
-      .catch((err) => res.status(500).json({ message: err.stack }));
-  };
-
-  public delete: RequestHandler = async (req, res) => {
-    await this.model
-      .findByIdAndRemove(req.params.id)
-      .then(() =>
-        res.json({ message: `${req.params.id} deleted successfully` })
-      )
-      .catch((err) => res.status(500).json({ message: err.stack }));
-  };
+  }
 }
-
-export default GenericController;
