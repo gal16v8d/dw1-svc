@@ -19,7 +19,7 @@ export class Recruit {
     ref: Location.name,
     justOne: false,
   })
-  location: [Location];
+  location: Location[];
   @Prop({ type: String, required: false })
   job?: string;
   @Prop({ type: String, required: false })

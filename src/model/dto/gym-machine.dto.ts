@@ -7,5 +7,5 @@ export class GymMachineDto {
   @ApiProperty()
   location: Types.ObjectId;
   @ApiProperty()
-  train: [string];
+  train: string[];
 }

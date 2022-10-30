@@ -1,0 +1,27 @@
+[
+  {
+    "_id": "61883e17b30cb8ebc11cf868",
+    "name": "Fresh",
+    "__v": 0
+  },
+  {
+    "_id": "61883e20b30cb8ebc11cf86a",
+    "name": "Training",
+    "__v": 0
+  },
+  {
+    "_id": "61883e28b30cb8ebc11cf86c",
+    "name": "Rookie",
+    "__v": 0
+  },
+  {
+    "_id": "61883e2eb30cb8ebc11cf86e",
+    "name": "Champion",
+    "__v": 0
+  },
+  {
+    "_id": "6188545e2aaedb3053119c1c",
+    "name": "Ultimate",
+    "__v": 0
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "_id": "617e034de10135af46d027c4",
+    "number": 1,
+    "name": "Fire Tower",
+    "power": 155,
+    "mp": 81,
+    "rang": "L",
+    "spec": "Stun",
+    "element": "617df0fe7c7d76fa476d7fc0",
+    "__v": 0,
+    "final": false
+  },
+  {
+    "_id": "617e055a66592a10e59ecc23",
+    "number": 2,
+    "name": "Prominence Beam",
+    "power": 444,
+    "mp": 183,
+    "rang": "L",
+    "spec": "Flat",
+    "element": "617df0fe7c7d76fa476d7fc0",
+    "__v": 0,
+    "final": false
+  },
+  {
+    "_id": "617e057866592a10e59ecc25",
+    "number": 3,
+    "name": "Spit Fire",
+    "power": 66,
+    "mp": 30,
+    "rang": "L",
+    "element": "617df0fe7c7d76fa476d7fc0",
+    "__v": 0,
+    "final": false
+  }
+]

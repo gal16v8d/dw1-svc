@@ -5,9 +5,9 @@ export class ItemDto {
   @ApiProperty()
   name: string;
   @ApiPropertyOptional()
-  effect?: [string];
+  effect?: string[];
   @ApiPropertyOptional()
-  location?: [Types.ObjectId];
+  location?: Types.ObjectId[];
   @ApiPropertyOptional()
   note?: string;
 }

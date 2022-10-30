@@ -1,17 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CardController } from './card.controller';
+import { CardDto } from '../model/dto/card.dto';
 import { CardService } from '../service/card.service';
-import { cardArray, mockCard } from '../__mocks__/card.mock';
-import { CardDto } from 'src/model/dto/card.dto';
+import mockList from '../__mocks__/cardList.json';
+import { CardController } from './card.controller';
 
 const APP_ID = '1';
 
 describe('Card Controller test suite', () => {
   const requestData: CardDto = {
-    name: mockCard.name,
+    name: mockList[0].name,
     number: 0,
     exchangeable: false,
   };
+  const mockCard = mockList[0];
   let controller: CardController;
   let service: CardService;
 
@@ -23,7 +24,7 @@ describe('Card Controller test suite', () => {
           provide: CardService,
           useValue: {
             create: jest.fn().mockResolvedValue(mockCard),
-            findAll: jest.fn().mockResolvedValue(cardArray),
+            findAll: jest.fn().mockResolvedValue(mockList),
             findOne: jest.fn().mockResolvedValue(mockCard),
             update: jest.fn().mockResolvedValue(mockCard),
             delete: jest.fn().mockResolvedValue(mockCard),
@@ -46,7 +47,7 @@ describe('Card Controller test suite', () => {
 
   it('should return all cards', async () => {
     const apps = await controller.findAll(false);
-    expect(apps).toEqual(cardArray);
+    expect(apps).toEqual(mockList);
   });
 
   it('should return single card', async () => {

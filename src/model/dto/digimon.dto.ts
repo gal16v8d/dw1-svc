@@ -15,11 +15,11 @@ export class DigimonDto {
   @ApiPropertyOptional()
   techFinal?: Types.ObjectId;
   @ApiProperty()
-  tech: [Types.ObjectId];
+  tech: Types.ObjectId[];
   @ApiPropertyOptional()
-  locationHappy?: [Types.ObjectId];
+  locationHappy?: Types.ObjectId[];
   @ApiPropertyOptional()
-  locationSad?: [Types.ObjectId];
+  locationSad?: Types.ObjectId[];
   @ApiProperty()
   raisable: boolean;
   @ApiProperty()

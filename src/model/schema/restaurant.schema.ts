@@ -19,7 +19,7 @@ export class Restaurant {
     ref: RestaurantFood.name,
     justOne: false,
   })
-  restaurantFood: [RestaurantFood];
+  restaurantFood: RestaurantFood[];
 }
 
 export type RestaurantDocument = Restaurant & Document;

@@ -1,0 +1,23 @@
+[
+  {
+    "location": [],
+    "_id": "61783cc3980f82c383d1078d",
+    "name": "Meat",
+    "effect": ["Weight +1"],
+    "note": "Goburimon/SnowGoburimon/Sharmamon/Tsukaimon/Flarerizamon can drop this"
+  },
+  {
+    "_id": "61783dc1980f82c383d1078f",
+    "name": "Moldy Meat",
+    "effect": ["Weight +2", "Sickness"],
+    "location": ["61783d9d980f82c383d1078e"]
+  },
+  {
+    "_id": "617895e86c22811011573814",
+    "name": "Giant Meat",
+    "effect": ["Weight +2"],
+    "location": [],
+    "__v": 0,
+    "note": "J-Mojyamon can drop this"
+  }
+]

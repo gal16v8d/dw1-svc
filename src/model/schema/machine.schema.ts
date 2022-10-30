@@ -12,7 +12,7 @@ export class Machine {
   })
   location: Location;
   @Prop({ type: [{ name: String, price: Number }], required: true })
-  product: [{ name: string; price: number }];
+  product: { name: string; price: number }[];
   @Prop({ type: Boolean, required: true, default: false })
   random?: boolean;
 }

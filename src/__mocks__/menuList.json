@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "61886c1c4ab07f3cb5a8f1c0",
+    "name": "Clock",
+    "description": "In the top right corner of the game screen, you will see an alarm clock. This clock will chart your time through Digimon World. The clock runs on a 24-hour system, and you will find that certain events occur during the day while others happen at night. The clock's hand moves around once every hour. The white dot that circulates the outside of the clock will tell you what time it is.  When the dot is at the top of the circle, it is night. When it is at the bottom, it is daytime. You can tell what time of day it is by the pictures on the clock. Red denotes sunset and purple denotes sunrise.",
+    "__v": 0,
+    "type": "Option"
+  },
+  {
+    "_id": "61886c744ab07f3cb5a8f1c2",
+    "name": "Happiness Gauge",
+    "description": "In the bottom right corner of the game screen, you will find a happiness gauge.  It is the upper gauge with the happy face on it. When this meter is high, your Digimon will be happy and live longer, but there is also a chance that it will be spoiled.  If happiness is high and discipline is low, your Digimon may not accept items that you give it, such as stat chips or auto pilots.",
+    "__v": 0,
+    "type": "Option"
+  },
+  {
+    "_id": "61886cb44ab07f3cb5a8f1c4",
+    "name": "Discipline Gauge",
+    "description": "In the bottom right corner of the game screen, below the happiness gauge, you will find the discipline gauge. When this meter is high, your Digimon will be more obedient and take almost any item that you give him, but your Digimon may get tired easily and his lifespan will be shortened.",
+    "__v": 0,
+    "type": "Option"
+  }
+]

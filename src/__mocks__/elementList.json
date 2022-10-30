@@ -1,0 +1,36 @@
+[
+  {
+    "_id": "617df0fe7c7d76fa476d7fc0",
+    "name": "Fire"
+  },
+  {
+    "_id": "617dfcabd66f95af1a430a36",
+    "name": "Battle",
+    "__v": 0
+  },
+  {
+    "_id": "617dfcbfd66f95af1a430a38",
+    "name": "Air",
+    "__v": 0
+  },
+  {
+    "_id": "617dfcc7d66f95af1a430a3a",
+    "name": "Earth",
+    "__v": 0
+  },
+  {
+    "_id": "617dfcd0d66f95af1a430a3c",
+    "name": "Ice",
+    "__v": 0
+  },
+  {
+    "_id": "617dfcd9d66f95af1a430a3e",
+    "name": "Mech",
+    "__v": 0
+  },
+  {
+    "_id": "617dfce1d66f95af1a430a40",
+    "name": "Filth",
+    "__v": 0
+  }
+]

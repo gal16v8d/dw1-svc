@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "617e13e0865f0a80c9b3f92e",
+    "number": 0,
+    "name": "You",
+    "exchangeable": false,
+    "__v": 0,
+    "point": null,
+    "price": null
+  },
+  {
+    "_id": "617e140a865f0a80c9b3f930",
+    "number": 1,
+    "name": "Phoenixmon",
+    "point": 100,
+    "price": 2500,
+    "exchangeable": true,
+    "__v": 0
+  },
+  {
+    "_id": "617e14ac865f0a80c9b3f932",
+    "number": 2,
+    "name": "H-Kabuterimon",
+    "point": 100,
+    "price": 2500,
+    "exchangeable": true,
+    "__v": 0
+  }
+]

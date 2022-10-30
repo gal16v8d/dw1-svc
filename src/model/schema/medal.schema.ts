@@ -7,7 +7,7 @@ export class Medal {
   @Prop({ type: Number, required: true, unique: true })
   number: number;
   @Prop({ type: String, required: true, unique: true })
-  product: string;
+  name: string;
   @Prop({ type: String, required: true })
   description: string;
 }

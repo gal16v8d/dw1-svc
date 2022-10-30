@@ -4,7 +4,7 @@ export class MedalDto {
   @ApiProperty()
   number: number;
   @ApiProperty()
-  product: string;
+  name: string;
   @ApiProperty()
   description: string;
 }

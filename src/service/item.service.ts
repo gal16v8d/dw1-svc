@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Item, ItemDocument } from 'src/model/schema/item.schema';
 import { CONSTANTS } from '../const/dw1.const';
 import { ItemDto } from '../model/dto/item.dto';
+import { Item, ItemDocument } from '../model/schema/item.schema';
 import { GenericService } from './generic.service';
 
 @Injectable()

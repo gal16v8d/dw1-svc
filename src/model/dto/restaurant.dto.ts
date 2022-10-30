@@ -5,5 +5,5 @@ export class RestaurantDto {
   @ApiProperty()
   digimon: Types.ObjectId;
   @ApiProperty()
-  restaurantFood: [Types.ObjectId];
+  restaurantFood: Types.ObjectId[];
 }

@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "617e1d76a6bf8512724d50ee",
+    "number": 1,
+    "name": "Grade Cup",
+    "description": "Winning the  D, C, B, A, and S tournaments",
+    "__v": 0
+  },
+  {
+    "_id": "617e1dbea6bf8512724d50f0",
+    "number": 2,
+    "name": "Version Cup",
+    "description": "Winning the  0, 1, 2, 3, and 4 version tournaments",
+    "__v": 0
+  },
+  {
+    "_id": "617e1ea4a6bf8512724d50f2",
+    "number": 3,
+    "name": "Type Cup",
+    "description": "Winning all 'Type' Cups.  (Fire, Grapple, Thunder, Wind, Nature, Cool, Metallic, Filth)",
+    "__v": 0
+  }
+]

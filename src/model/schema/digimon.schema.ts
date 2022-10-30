@@ -29,21 +29,21 @@ export class Digimon {
     ref: Tech.name,
     justOne: false,
   })
-  tech: [Tech];
+  tech: Tech[];
   @Prop({
     type: [Types.ObjectId],
     required: false,
     ref: Location.name,
     justOne: false,
   })
-  locationHappy?: [Location];
+  locationHappy?: Location[];
   @Prop({
     type: [Types.ObjectId],
     required: false,
     ref: Location.name,
     justOne: false,
   })
-  locationSad?: [Location];
+  locationSad?: Location[];
   @Prop({ type: Boolean, default: false, required: true })
   raisable: boolean;
   @Prop({ type: Boolean, default: false, required: true })

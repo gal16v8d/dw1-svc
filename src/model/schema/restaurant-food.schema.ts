@@ -9,7 +9,7 @@ export class RestaurantFood {
   @Prop({ type: Number, required: true })
   price: number;
   @Prop({ type: [String], required: true })
-  effect: [string];
+  effect: string[];
 }
 
 export type RestaurantFoodDocument = RestaurantFood & Document;

@@ -1,0 +1,64 @@
+[
+  {
+    "_id": "6188893df6dcfb8ef285b371",
+    "name": "Agumon",
+    "level": "61883e28b30cb8ebc11cf86c",
+    "type": "vaccine",
+    "active": "day",
+    "techFinal": "61885c72001996234cd5c8fa",
+    "tech": [
+      "617e034de10135af46d027c4",
+      "617e057866592a10e59ecc25",
+      "617e059c66592a10e59ecc27",
+      "617e05b766592a10e59ecc29",
+      "617e05df66592a10e59ecc2b",
+      "617e068474ec2ce57e199833",
+      "617e06c074ec2ce57e199837"
+    ],
+    "locationHappy": ["6186e7c6cfef8dddcd1a3e4b"],
+    "locationSad": [],
+    "raisable": true,
+    "recruitable": true,
+    "itemDrop": "6186d67868070fb90f749da1",
+    "__v": 0
+  },
+  {
+    "_id": "61888cad58f2147fd1496251",
+    "name": "Elecmon",
+    "level": "61883e28b30cb8ebc11cf86c",
+    "type": "data",
+    "active": "day",
+    "techFinal": "61885c99001996234cd5c8fc",
+    "tech": [
+      "617e068474ec2ce57e199833",
+      "617e06e074ec2ce57e199839",
+      "617e070d74ec2ce57e19983b",
+      "617e07f874ec2ce57e199845",
+      "617e081474ec2ce57e199847",
+      "617e083174ec2ce57e199849",
+      "617e085774ec2ce57e19984b"
+    ],
+    "locationHappy": [
+      "617896f16c22811011573829",
+      "617896db6c22811011573825",
+      "617896e46c22811011573827",
+      "61789ff10fffe6b849ef3fc3",
+      "617896fc6c2281101157382b"
+    ],
+    "locationSad": [],
+    "raisable": true,
+    "recruitable": true,
+    "__v": 0
+  },
+  {
+    "_id": "618b401800f3449853aa95da",
+    "name": "Airdramon",
+    "level": "61883e2eb30cb8ebc11cf86e",
+    "tech": [],
+    "locationHappy": [],
+    "locationSad": [],
+    "raisable": true,
+    "recruitable": true,
+    "__v": 0
+  }
+]

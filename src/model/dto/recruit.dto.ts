@@ -5,7 +5,7 @@ export class RecruitDto {
   @ApiProperty()
   digimon: Types.ObjectId;
   @ApiProperty()
-  location: [Types.ObjectId];
+  location: Types.ObjectId[];
   @ApiPropertyOptional()
   job?: string;
   @ApiPropertyOptional()

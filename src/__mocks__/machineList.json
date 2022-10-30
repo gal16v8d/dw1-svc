@@ -1,0 +1,66 @@
+[
+  {
+    "_id": "6188517abf36d38fe092a376",
+    "location": "618850159f3d9e597d849261",
+    "product": [
+      {
+        "name": "Meat",
+        "price": 300,
+        "_id": "6188517abf36d38fe092a377"
+      },
+      {
+        "name": "Digimushroom",
+        "price": 600,
+        "_id": "6188517abf36d38fe092a378"
+      }
+    ],
+    "random": false,
+    "__v": 0
+  },
+  {
+    "_id": "618851ecbf36d38fe092a37a",
+    "location": "61788dccf74a592dc5d65936",
+    "product": [
+      {
+        "name": "Hund MP",
+        "price": 200,
+        "_id": "618851ecbf36d38fe092a37b"
+      },
+      {
+        "name": "Thous MP",
+        "price": 1800,
+        "_id": "618851ecbf36d38fe092a37c"
+      }
+    ],
+    "random": false,
+    "__v": 0
+  },
+  {
+    "_id": "618852cbbf36d38fe092a384",
+    "location": "617896c76c22811011573823",
+    "product": [
+      {
+        "name": "Sm. Recovery Floppy",
+        "price": 200,
+        "_id": "618852cbbf36d38fe092a385"
+      },
+      {
+        "name": "Meat",
+        "price": 200,
+        "_id": "618852cbbf36d38fe092a386"
+      },
+      {
+        "name": "Moldy Meat",
+        "price": 200,
+        "_id": "618852cbbf36d38fe092a387"
+      },
+      {
+        "name": "MP Floppy",
+        "price": 200,
+        "_id": "618852cbbf36d38fe092a388"
+      }
+    ],
+    "random": true,
+    "__v": 0
+  }
+]

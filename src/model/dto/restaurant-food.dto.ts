@@ -6,5 +6,5 @@ export class RestaurantFoodDto {
   @ApiProperty()
   price: number;
   @ApiProperty()
-  effect: [string];
+  effect: string[];
 }

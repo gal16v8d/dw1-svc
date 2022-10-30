@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "618b5746fe7fbf61e1f28b3e",
+    "digimon": "6188893df6dcfb8ef285b371",
+    "location": ["6178339d980f82c383d1078b"],
+    "job": "Item Keeper",
+    "note": "Upon entering Native Forest, you will meet up with an Agumon who will battle you.  You cannot escape this battle, and you must defeat Agumon before you can enter Native Forest any deeper. Defeat Agumon and he will join the city, opening up a convenient shop to hold any extra items that you may have.  Agumon can hold up to 100 different kinds of items, which comes in very handy since you can only carry 10 different items with you at a time.",
+    "__v": 0
+  },
+  {
+    "_id": "618c7150b325f35b3a05809c",
+    "digimon": "618b4ac900f3449853aa960b",
+    "location": ["618b57a7fe7fbf61e1f28b43"],
+    "job": "Opens the path to the Digital Bridge",
+    "note": "In Native Forest, you will find an area called Kunemon's Bed which is located east of the Native Forest toilet. There, you will see Kunemon sitting on a large bush.  What's the problem?  Kunemon's hungry!  Feed him a food item from your inventory, and he will challenge you to a fight.  Win, and Kunemon will join the city.  Kunemon has about 900 HP, so make sure that your Digimon has comparable stats.  When you win, Kunemon opens a new path in the city's main square.  When you return to the city and talk to Kunemon, he will tell you about eating through the bushes to make the path.  This path leads you to the Digital Bridge area, which is a lot easier than walking all the way around Native Forest and back up to get to the bridge!.",
+    "__v": 0
+  },
+  {
+    "_id": "618c833cb325f35b3a05809e",
+    "digimon": "618b4daf00f3449853aa962f",
+    "location": ["6178339d980f82c383d1078b"],
+    "job": "Takes over Tanemon's farm and gives Giant Meat",
+    "note": "Palmon is hiding in Native Forest.  She says she's a flower. Find Palmon south of the Native Forest toilet. She will be facing away from you.  Talk to her, and she will tell you that she is a flower. Keep talking to her until she fights you. Defeat her, and Palmon will join the city and upgrade the meat farm for you, relieving a very happy Tanemon.  Tanemon will now be found lounging around in one of the planters, while Palmon runs the farm!  Palmon will give you three giant meats a day now, which should help feed those your Digimon. Palmon also can sell you Giant Meat if you need more than 3 pieces per day.",
+    "__v": 0
+  }
+]

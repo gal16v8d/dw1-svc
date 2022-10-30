@@ -11,7 +11,7 @@ export class GymMachine {
   @Prop({ type: Types.ObjectId, required: true, ref: Location.name })
   location: Location;
   @Prop({ type: [String], required: true, enum: Object.values(ParameterEnum) })
-  train: [string];
+  train: string[];
 }
 
 export type GymMachineDocument = GymMachine & Document;

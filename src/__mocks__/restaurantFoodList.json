@@ -1,0 +1,35 @@
+[
+  {
+    "_id": "632e03d4f84e525501260708",
+    "name": "T-Bone Steak",
+    "price": 1000,
+    "effect": ["HP +10", "Brn +1", "Discipline Up", "Tiredness Down"],
+    "__v": 0
+  },
+  {
+    "_id": "632e0779f84e525501260711",
+    "name": "Dx-steak",
+    "price": 2500,
+    "effect": [
+      "HP +30",
+      "Brn +2",
+      "Happiness Up",
+      "Discipline Up",
+      "Tiredness Down"
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "632e08a0f84e525501260715",
+    "name": "Phantom Steak",
+    "price": 5000,
+    "effect": [
+      "HP +50",
+      "Brn +3",
+      "Happiness Up",
+      "Discipline Up",
+      "Tiredness Down"
+    ],
+    "__v": 0
+  }
+]

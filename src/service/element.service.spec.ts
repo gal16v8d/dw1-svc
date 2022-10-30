@@ -2,15 +2,16 @@ import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Model } from 'mongoose';
 import { Element } from '../model/schema/element.schema';
+import mockList from '../__mocks__/elementList.json';
 import { ElementService } from './element.service';
-import { elementArray, mockElement } from '../__mocks__/element.mock';
 
 const APP_ID = '1';
 
 describe('ElementService test suite', () => {
   const requestData = {
-    name: mockElement.name,
+    name: mockList[0].name,
   };
+  const mockElement = mockList[0];
   const mockModel = {
     new: jest.fn().mockResolvedValue(mockElement),
     constructor: jest.fn().mockResolvedValue(mockElement),
@@ -52,9 +53,9 @@ describe('ElementService test suite', () => {
   });
 
   it('should return all elements', async () => {
-    jest.spyOn(model, 'find').mockResolvedValue(elementArray);
+    jest.spyOn(model, 'find').mockResolvedValue(mockList);
     const apps = await service.findAll(false);
-    expect(apps).toEqual(elementArray);
+    expect(apps).toEqual(mockList);
   });
 
   it('should return single element', async () => {

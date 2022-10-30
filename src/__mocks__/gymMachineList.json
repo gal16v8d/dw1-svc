@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "61880ad305a2e36e50fa69b3",
+    "name": "Boulder Moving",
+    "location": "61880a2305a2e36e50fa69af",
+    "train": ["hp", "off"],
+    "__v": 0
+  },
+  {
+    "_id": "61880b3b05a2e36e50fa69b5",
+    "name": "Tree Striking",
+    "location": "61880a2305a2e36e50fa69af",
+    "train": ["off", "spd"],
+    "__v": 0
+  },
+  {
+    "_id": "61880b9a05a2e36e50fa69b7",
+    "name": "Running",
+    "location": "61880a2305a2e36e50fa69af",
+    "train": ["hp", "spd"],
+    "__v": 0
+  }
+]

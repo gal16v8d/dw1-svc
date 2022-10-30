@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "617e2b75f13ac5c863aae50b",
+    "name": "Meat",
+    "description": "Your Digimon is hungry!  Feed him by going into the item menu and giving him some food item.  Digimon like sirloin best, and it decreases tiredness in your digimon.  One sirloin or meat may not satisfy your Digimon's hunger right away.  your digimon will tell you if he is full after he eats.  If he shows a sign of happiness, such as roaring or making other noise, that means he is full.  If not, then wait a little while, and his hunger bubble should come up again. Feed your digimon until he is full!",
+    "__v": 0
+  },
+  {
+    "_id": "617e2c59f13ac5c863aae50e",
+    "name": "Poop",
+    "description": "Yes, I'm sorry to say that's what it is! Hurry and take your Digimon to the closest toilet, before he has an accident! If you are unable to get your Digimon to a toilet, then he will go where ever you are, and your virus gauge will increase by one.  If the virus gauge gets too high, your Digimon may become the smelliest of the Digimon: Sukamon! If you have gotten to the point where you can buy a portable potty, then carrying a few of those around with you isn't too bad of an idea!",
+    "__v": 0
+  },
+  {
+    "_id": "617e2cfff13ac5c863aae510",
+    "name": "Sleep",
+    "description": "When the Z's appear, your Digimon is ready to be tucked in for the night. Your Digimon can sleep anywhere, and his HP and MP will be totally refilled.  Sleeping is also the only opportunity that you have to save your game progress.",
+    "__v": 0
+  }
+]

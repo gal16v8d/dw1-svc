@@ -8,14 +8,14 @@ export class Item {
   @Prop({ type: String, required: true, unique: true })
   name: string;
   @Prop({ type: [String], required: false })
-  effect?: [string];
+  effect?: string[];
   @Prop({
     type: [Types.ObjectId],
     required: false,
     ref: Location.name,
     justOne: false,
   })
-  location?: [Location];
+  location?: Location[];
   @Prop({ type: String, required: false })
   note?: string;
 }
