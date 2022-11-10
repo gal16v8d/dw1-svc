@@ -18,6 +18,7 @@ import { MachineModule } from './machine.module';
 import { MedalModule } from './medal.module';
 import { MenuModule } from './menu.module';
 import { MeritPointModule } from './merit-point.module';
+import { MongoModule } from './mongo.module';
 import { RecruitModule } from './recruit.module';
 import { RestaurantFoodModule } from './restaurant-food.module';
 import { RestaurantModule } from './restaurant.module';
@@ -27,13 +28,7 @@ import { TechModule } from './tech.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ load: [config] }),
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('server.dbUrl'),
-      }),
-      inject: [ConfigService],
-    }),
+    MongoModule,
     ThrottlerModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],

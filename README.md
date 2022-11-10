@@ -21,6 +21,9 @@ with some useful info around the PS1 game Digimon World 1.</p>
 $ npm install
 ```
 
+You might need to define `DB_DW1` env value, it should target to a mongo database, on my case, I am using an existing one in atlas mongo, who I am getting populated slowly using the Digimon World 1
+info that I get from some guides and some playthrough notes.
+
 ## Running the app
 
 ```bash

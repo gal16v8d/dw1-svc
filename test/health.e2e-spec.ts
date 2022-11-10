@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
+import request from 'supertest';
 import { HealthModule } from '../src/module/health.module';
 
 describe('HealthController (e2e)', () => {
@@ -14,6 +14,8 @@ describe('HealthController (e2e)', () => {
     app = moduleFixture.createNestApplication();
     await app.init();
   });
+
+  afterAll(async () => await app.close());
 
   it('/health (GET)', () => {
     return request(app.getHttpServer())

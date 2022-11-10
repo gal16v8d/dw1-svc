@@ -1,4 +1,4 @@
-import { RequestMethod } from '@nestjs/common';
+import { RequestMethod, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -12,6 +12,11 @@ async function bootstrap() {
   app.setGlobalPrefix('dw1/api', {
     exclude: [{ path: 'health', method: RequestMethod.GET }],
   });
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    }),
+  );
   const pkg = JSON.parse(
     await promises.readFile(join('.', 'package.json'), 'utf-8'),
   );
