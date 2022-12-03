@@ -4,16 +4,10 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A Mongo + Express + Node.js + Typescript app to expose a REST API
+<p align="center">A Mongo + Express + Node.js + Typescript app to expose a REST API
 with some useful info around the PS1 game Digimon World 1.</p>
-    <p align="center">
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+# Get started
 
 ## Installation
 
