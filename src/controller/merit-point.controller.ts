@@ -12,7 +12,7 @@ export class MeritPointController extends GenericController<
   MeritPoint,
   MeritPointDto
 > {
-  constructor(private readonly meritPointService: MeritPointService) {
+  constructor(readonly meritPointService: MeritPointService) {
     super(meritPointService);
   }
 }

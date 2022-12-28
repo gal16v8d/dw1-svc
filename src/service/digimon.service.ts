@@ -10,7 +10,7 @@ import { GenericService } from './generic.service';
 export class DigimonService extends GenericService<Digimon, DigimonDto> {
   constructor(
     @InjectModel(Digimon.name)
-    private readonly digimonModel: Model<DigimonDocument>,
+    readonly digimonModel: Model<DigimonDocument>,
   ) {
     super(digimonModel, [
       {

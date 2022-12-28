@@ -12,7 +12,7 @@ export class ElementController extends GenericController<
   Element,
   NameInputDto
 > {
-  constructor(private readonly elementService: ElementService) {
+  constructor(readonly elementService: ElementService) {
     super(elementService);
   }
 }

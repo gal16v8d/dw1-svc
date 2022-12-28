@@ -9,7 +9,7 @@ import { GenericService } from './generic.service';
 export class ElementService extends GenericService<Element, NameInputDto> {
   constructor(
     @InjectModel(Element.name)
-    private readonly elementModel: Model<ElementDocument>,
+    readonly elementModel: Model<ElementDocument>,
   ) {
     super(elementModel);
   }

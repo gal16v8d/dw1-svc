@@ -9,7 +9,7 @@ import { GenericController } from './generic.controller';
 @ApiTags(`${CONSTANTS.DB.MENU} controller`)
 @Controller(`${CONSTANTS.DB.MENU}s`)
 export class MenuController extends GenericController<Menu, MenuDto> {
-  constructor(private readonly menuService: MenuService) {
+  constructor(readonly menuService: MenuService) {
     super(menuService);
   }
 }

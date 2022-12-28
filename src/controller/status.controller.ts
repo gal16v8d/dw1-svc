@@ -9,7 +9,7 @@ import { GenericController } from './generic.controller';
 @ApiTags(`${CONSTANTS.DB.STATUS} controller`)
 @Controller(`${CONSTANTS.DB.STATUS}`)
 export class StatusController extends GenericController<Status, StatusDto> {
-  constructor(private readonly statusService: StatusService) {
+  constructor(readonly statusService: StatusService) {
     super(statusService);
   }
 }

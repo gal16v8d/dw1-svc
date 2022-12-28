@@ -1,6 +1,15 @@
 export interface Configuration {
+  flagClient: {
+    baseUrl: string;
+    appSecKey: string;
+  };
+  http: {
+    timeout: number;
+  };
   meta: {
+    appId: string;
     appName: string;
+    appSecKey: string;
     env: string;
   };
   server: {

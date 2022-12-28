@@ -1,7 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
-import { MongooseModule } from '@nestjs/mongoose';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import config from '../config/config';
 import { ReadMiddleware } from '../middleware/read.middleware';
@@ -9,6 +8,7 @@ import { CardModule } from './card.module';
 import { DigimonModule } from './digimon.module';
 import { ElementModule } from './element.module';
 import { ExchangeModule } from './exchange.module';
+import { FlagServiceModule } from './flag.module';
 import { GymMachineModule } from './gym-machine.module';
 import { HealthModule } from './health.module';
 import { ItemModule } from './item.module';
@@ -38,6 +38,7 @@ import { TechModule } from './tech.module';
       }),
     }),
     HealthModule,
+    FlagServiceModule,
     CardModule,
     DigimonModule,
     ElementModule,

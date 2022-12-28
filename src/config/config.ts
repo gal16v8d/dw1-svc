@@ -6,8 +6,17 @@ const int = (val: string | undefined, num: number): number =>
   val ? (isNaN(parseInt(val)) ? num : parseInt(val)) : num;
 
 const config: ConfigFactory<Configuration> = () => ({
+  flagClient: {
+    baseUrl: process.env.FLAG_CLIENT_URL ?? '',
+    appSecKey: process.env.FLAG_API_KEY ?? '',
+  },
+  http: {
+    timeout: int(process.env.HTTP_TIME_OUT, 5000),
+  },
   meta: {
+    appId: process.env.DW1_APP_ID ?? '',
     appName: process.env.APP_NAME ?? 'DW1 Service',
+    appSecKey: process.env.DW1_API_KEY ?? '',
     env: process.env.ENV ?? CONSTANTS.ENVIRONMENT.DEV,
   },
   server: {

@@ -9,7 +9,7 @@ import { GenericService } from './generic.service';
 export class StatusService extends GenericService<Status, StatusDto> {
   constructor(
     @InjectModel(Status.name)
-    private readonly statusModel: Model<StatusDocument>,
+    readonly statusModel: Model<StatusDocument>,
   ) {
     super(statusModel);
   }

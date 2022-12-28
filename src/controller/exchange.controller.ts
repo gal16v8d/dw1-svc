@@ -12,7 +12,7 @@ export class ExchangeController extends GenericController<
   Exchange,
   ExchangeDto
 > {
-  constructor(private readonly exchangeService: ExchangeService) {
+  constructor(readonly exchangeService: ExchangeService) {
     super(exchangeService);
   }
 }

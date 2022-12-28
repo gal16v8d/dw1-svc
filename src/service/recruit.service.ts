@@ -10,7 +10,7 @@ import { GenericService } from './generic.service';
 export class RecruitService extends GenericService<Recruit, RecruitDto> {
   constructor(
     @InjectModel(Recruit.name)
-    private readonly recruitModel: Model<RecruitDocument>,
+    readonly recruitModel: Model<RecruitDocument>,
   ) {
     super(recruitModel, [
       {

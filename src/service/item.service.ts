@@ -10,7 +10,7 @@ import { GenericService } from './generic.service';
 export class ItemService extends GenericService<Item, ItemDto> {
   constructor(
     @InjectModel(Item.name)
-    private readonly itemModel: Model<ItemDocument>,
+    readonly itemModel: Model<ItemDocument>,
   ) {
     super(itemModel, [
       {

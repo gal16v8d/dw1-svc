@@ -9,7 +9,7 @@ import { GenericController } from './generic.controller';
 @ApiTags(`${CONSTANTS.DB.DIGIMON} controller`)
 @Controller(`${CONSTANTS.DB.DIGIMON}s`)
 export class DigimonController extends GenericController<Digimon, DigimonDto> {
-  constructor(private readonly digimonService: DigimonService) {
+  constructor(readonly digimonService: DigimonService) {
     super(digimonService);
   }
 }

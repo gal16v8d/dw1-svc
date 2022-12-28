@@ -9,7 +9,7 @@ import { GenericController } from './generic.controller';
 @ApiTags(`${CONSTANTS.DB.MEDAL} controller`)
 @Controller(`${CONSTANTS.DB.MEDAL}s`)
 export class MedalController extends GenericController<Medal, MedalDto> {
-  constructor(private readonly medalService: MedalService) {
+  constructor(readonly medalService: MedalService) {
     super(medalService);
   }
 }

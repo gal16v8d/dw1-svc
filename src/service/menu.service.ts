@@ -9,7 +9,7 @@ import { GenericService } from './generic.service';
 export class MenuService extends GenericService<Menu, MenuDto> {
   constructor(
     @InjectModel(Menu.name)
-    private readonly menuModel: Model<MenuDocument>,
+    readonly menuModel: Model<MenuDocument>,
   ) {
     super(menuModel);
   }
