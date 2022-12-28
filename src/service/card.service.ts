@@ -7,9 +7,7 @@ import { GenericService } from './generic.service';
 
 @Injectable()
 export class CardService extends GenericService<Card, CardDto> {
-  constructor(
-    @InjectModel(Card.name) private readonly cardModel: Model<CardDocument>,
-  ) {
+  constructor(@InjectModel(Card.name) readonly cardModel: Model<CardDocument>) {
     super(cardModel);
   }
 }

@@ -9,7 +9,7 @@ import { GenericService } from './generic.service';
 export class LocationService extends GenericService<Location, NameInputDto> {
   constructor(
     @InjectModel(Location.name)
-    private readonly locationModel: Model<LocationDocument>,
+    readonly locationModel: Model<LocationDocument>,
   ) {
     super(locationModel);
   }

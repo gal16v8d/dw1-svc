@@ -9,7 +9,7 @@ import { GenericService } from './generic.service';
 export class LevelService extends GenericService<Level, NameInputDto> {
   constructor(
     @InjectModel(Level.name)
-    private readonly levelModel: Model<LevelDocument>,
+    readonly levelModel: Model<LevelDocument>,
   ) {
     super(levelModel);
   }

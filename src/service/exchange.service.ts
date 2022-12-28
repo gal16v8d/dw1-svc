@@ -9,7 +9,7 @@ import { GenericService } from './generic.service';
 export class ExchangeService extends GenericService<Exchange, ExchangeDto> {
   constructor(
     @InjectModel(Exchange.name)
-    private readonly exchangeService: Model<ExchangeDocument>,
+    readonly exchangeService: Model<ExchangeDocument>,
   ) {
     super(exchangeService);
   }

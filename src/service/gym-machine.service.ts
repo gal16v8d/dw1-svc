@@ -16,7 +16,7 @@ export class GymMachineService extends GenericService<
 > {
   constructor(
     @InjectModel(GymMachine.name)
-    private readonly gymMachineModel: Model<GymMachineDocument>,
+    readonly gymMachineModel: Model<GymMachineDocument>,
   ) {
     super(gymMachineModel, [
       {

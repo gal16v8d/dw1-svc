@@ -1,4 +1,7 @@
+import { CanActivate, ExecutionContext } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import { Observable } from 'rxjs';
+import { HeaderGuard } from '../guard/auth.guard';
 import { CardDto } from '../model/dto/card.dto';
 import { CardService } from '../service/card.service';
 import mockList from '../__mocks__/cardList.json';
@@ -7,6 +10,13 @@ import { CardController } from './card.controller';
 const APP_ID = '1';
 
 describe('Card Controller test suite', () => {
+  class MockHeaderGuard implements CanActivate {
+    canActivate(
+      context: ExecutionContext,
+    ): boolean | Promise<boolean> | Observable<boolean> {
+      return !!context ?? true;
+    }
+  }
   const requestData: CardDto = {
     name: mockList[0].name,
     number: 0,
@@ -31,7 +41,10 @@ describe('Card Controller test suite', () => {
           },
         },
       ],
-    }).compile();
+    })
+      .overrideGuard(HeaderGuard)
+      .useClass(MockHeaderGuard)
+      .compile();
 
     controller = app.get<CardController>(CardController);
     service = app.get<CardService>(CardService);

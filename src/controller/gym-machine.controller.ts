@@ -12,7 +12,7 @@ export class GymMachineController extends GenericController<
   GymMachine,
   GymMachineDto
 > {
-  constructor(private readonly gymMachineService: GymMachineService) {
+  constructor(readonly gymMachineService: GymMachineService) {
     super(gymMachineService);
   }
 }

@@ -16,7 +16,7 @@ export class MeritPointService extends GenericService<
 > {
   constructor(
     @InjectModel(MeritPoint.name)
-    private readonly meritPointModel: Model<MeritPointDocument>,
+    readonly meritPointModel: Model<MeritPointDocument>,
   ) {
     super(meritPointModel, [
       {

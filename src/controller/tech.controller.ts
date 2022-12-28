@@ -9,7 +9,7 @@ import { GenericController } from './generic.controller';
 @ApiTags(`${CONSTANTS.DB.TECH} controller`)
 @Controller(`${CONSTANTS.DB.TECH}s`)
 export class TechController extends GenericController<Tech, TechDto> {
-  constructor(private readonly techService: TechService) {
+  constructor(readonly techService: TechService) {
     super(techService);
   }
 }

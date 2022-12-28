@@ -12,7 +12,7 @@ export class RestaurantFoodController extends GenericController<
   RestaurantFood,
   RestaurantFoodDto
 > {
-  constructor(private readonly restaurantFoodService: RestaurantFoodService) {
+  constructor(readonly restaurantFoodService: RestaurantFoodService) {
     super(restaurantFoodService);
   }
 }

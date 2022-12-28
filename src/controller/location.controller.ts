@@ -12,7 +12,7 @@ export class LocationController extends GenericController<
   Location,
   NameInputDto
 > {
-  constructor(private readonly locationService: LocationService) {
+  constructor(readonly locationService: LocationService) {
     super(locationService);
   }
 }

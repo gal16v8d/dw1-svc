@@ -15,7 +15,7 @@ export class RestaurantFoodService extends GenericService<
 > {
   constructor(
     @InjectModel(RestaurantFood.name)
-    private readonly restaurantFoodModel: Model<RestaurantFoodDocument>,
+    readonly restaurantFoodModel: Model<RestaurantFoodDocument>,
   ) {
     super(restaurantFoodModel);
   }

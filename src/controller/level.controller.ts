@@ -9,7 +9,7 @@ import { GenericController } from './generic.controller';
 @ApiTags(`${CONSTANTS.DB.LEVEL} controller`)
 @Controller(`${CONSTANTS.DB.LEVEL}s`)
 export class LevelController extends GenericController<Level, NameInputDto> {
-  constructor(private readonly levelService: LevelService) {
+  constructor(readonly levelService: LevelService) {
     super(levelService);
   }
 }

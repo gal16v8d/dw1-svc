@@ -9,7 +9,7 @@ import { GenericController } from './generic.controller';
 @ApiTags(`${CONSTANTS.DB.ITEM} controller`)
 @Controller(`${CONSTANTS.DB.ITEM}s`)
 export class ItemController extends GenericController<Item, ItemDto> {
-  constructor(private readonly itemService: ItemService) {
+  constructor(readonly itemService: ItemService) {
     super(itemService);
   }
 }

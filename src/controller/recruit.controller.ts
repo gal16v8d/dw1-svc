@@ -9,7 +9,7 @@ import { GenericController } from './generic.controller';
 @ApiTags(`${CONSTANTS.DB.RECRUIT} controller`)
 @Controller(`${CONSTANTS.DB.RECRUIT}s`)
 export class RecruitController extends GenericController<Recruit, RecruitDto> {
-  constructor(private readonly recruitService: RecruitService) {
+  constructor(readonly recruitService: RecruitService) {
     super(recruitService);
   }
 }

@@ -9,7 +9,7 @@ import { GenericService } from './generic.service';
 export class MedalService extends GenericService<Medal, MedalDto> {
   constructor(
     @InjectModel(Medal.name)
-    private readonly medalModel: Model<MedalDocument>,
+    readonly medalModel: Model<MedalDocument>,
   ) {
     super(medalModel);
   }
