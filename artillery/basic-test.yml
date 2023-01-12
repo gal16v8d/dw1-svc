@@ -13,8 +13,6 @@ config:
       target: 'http://localhost:8100'
     prod:
       target: 'https://dw1-svc-production.up.railway.app'
-    prod-heroku:
-      target: 'https://protected-crag-80096.herokuapp.com'
 scenarios:
   - flow:
       - get:
