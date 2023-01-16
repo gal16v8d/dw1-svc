@@ -4,7 +4,7 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-<p align="center">A Mongo + Express + Node.js + Typescript app to expose a REST API
+<p align="center">A Mongo + Nest.js + Node.js + Typescript app to expose a REST API
 with some useful info around the PS1 game Digimon World 1.</p>
 
 # Get started
