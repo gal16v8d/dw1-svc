@@ -65,6 +65,21 @@ describe('RestClientProvider', () => {
     expect(mockRestCall).toHaveBeenCalled();
   });
 
+  it('should return internal error if unexpected error', async () => {
+    const error: AxiosError = { ...badResponse, code: 'ENOTFOUND' };
+    const mockRestCall = jest
+      .spyOn(httpService, 'request')
+      .mockImplementationOnce(() => {
+        throw error;
+      });
+    try {
+      await provider.get(mockServiceName, mockBaseUrl, {});
+    } catch (e) {
+      expect(e.message).toBe(`Unexpected response from ${mockServiceName}`);
+    }
+    expect(mockRestCall).toHaveBeenCalled();
+  });
+
   it('should return internal error if EmptyError', async () => {
     const mockRestCall = jest
       .spyOn(httpService, 'request')

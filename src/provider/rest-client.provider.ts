@@ -5,7 +5,7 @@ import {
   InternalServerErrorException,
   ServiceUnavailableException,
 } from '@nestjs/common';
-import { AxiosRequestConfig, AxiosResponse, Method } from 'axios';
+import { AxiosRequestConfig, AxiosResponse, Method, ResponseType } from 'axios';
 import { EmptyError, firstValueFrom } from 'rxjs';
 import { ResponseDto } from '../model/dto/response.dto';
 
@@ -27,12 +27,14 @@ export class RestClientProvider {
     headers: Record<string, string | string[] | number | boolean | null>,
     method: Method,
     data?: unknown,
+    responseType?: ResponseType,
   ) {
     const config: AxiosRequestConfig = {
       url,
       method,
       data,
       headers,
+      responseType,
     };
     return this.performRequest<T>(config, service);
   }
@@ -60,6 +62,10 @@ export class RestClientProvider {
       );
     } else if (e.response) {
       throw new HttpException(e.response?.data ?? '', e.response.status);
+    } else {
+      throw new InternalServerErrorException(
+        `Unexpected response from ${service}`,
+      );
     }
   }
 }
