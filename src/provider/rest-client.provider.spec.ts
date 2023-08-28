@@ -12,7 +12,7 @@ describe('RestClientProvider', () => {
   const okResponse: AxiosResponse<string> = {
     data: 'Ok',
     headers: {},
-    config: {},
+    config: undefined,
     status: HttpStatus.OK,
     statusText: 'Ok',
   };
@@ -104,7 +104,7 @@ describe('RestClientProvider', () => {
       const badAxiosResponse = {
         data: 'failed',
         headers: {},
-        config: {},
+        config: undefined,
         status,
         statusText: 'failed',
       };
