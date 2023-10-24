@@ -46,14 +46,7 @@ $ npm run test:cov
 
 ### Artillery tests
 
-- Go under artillery folder inside this project.
-- Install [artillery](https://www.artillery.io/) and artillery-plugin-expect globally.
-- Then run by:
-
-```bash
-# basic test
-$ artillery run -e _env-name_ basic-test.yml
-```
+- Can be checked at: [api-testing repo](https://github.com/gal16v8d/api-testing)
 
 ## Stay in touch
 
