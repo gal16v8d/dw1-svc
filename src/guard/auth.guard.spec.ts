@@ -1,9 +1,6 @@
 import { INestApplication } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
-import config from '../config/config';
 import { AppModule } from '../module/app.module';
-import { FlagServiceModule } from '../module/flag.module';
 import { FlagClientService } from '../service/flag-client.service';
 import { HeaderGuard } from './auth.guard';
 

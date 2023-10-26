@@ -3,7 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import config from '../config/config';
-import { ReadMiddleware } from '../middleware/read.middleware';
+import { RequestMiddleware } from '../middleware/request.middleware';
 import { CardModule } from './card.module';
 import { DigimonModule } from './digimon.module';
 import { ElementModule } from './element.module';
@@ -66,6 +66,6 @@ import { TechModule } from './tech.module';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(ReadMiddleware).forRoutes('/');
+    consumer.apply(RequestMiddleware).forRoutes('*');
   }
 }
