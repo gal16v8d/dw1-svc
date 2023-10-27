@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { LevelController } from '../controller/level.controller';
 import { Level, LevelSchema } from '../model/schema/level.schema';
+import { CacheService } from '../service/cache.service';
 import { LevelService } from '../service/level.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -14,6 +15,6 @@ import { FlagServiceModule } from './flag.module';
     MongooseModule.forFeature([{ name: Level.name, schema: LevelSchema }]),
   ],
   controllers: [LevelController],
-  providers: [LevelService],
+  providers: [LevelService, CacheService],
 })
 export class LevelModule {}

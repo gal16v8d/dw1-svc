@@ -4,6 +4,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { Observable } from 'rxjs';
 import mockCardList from '../../__mocks__/cardList.json';
 import { HeaderGuard } from '../../guard/auth.guard';
+import { CacheService } from '../../service/cache.service';
 import { CardService } from '../../service/card.service';
 import { CardController } from '../card.controller';
 
@@ -44,11 +45,20 @@ describe('CRUD Controller test suite', () => {
             {
               provide: databaseModel.service,
               useValue: {
+                getKey: jest.fn().mockResolvedValue(databaseModel.name),
                 create: jest.fn().mockResolvedValue(mockOne),
                 findAll: jest.fn().mockResolvedValue(databaseModel.all),
                 findOne: jest.fn().mockResolvedValue(mockOne),
                 update: jest.fn().mockResolvedValue(mockOne),
                 delete: jest.fn().mockResolvedValue(mockOne),
+              },
+            },
+            {
+              provide: CacheService,
+              useValue: {
+                set: jest.fn(),
+                get: jest.fn().mockResolvedValue(undefined),
+                deleteAll: jest.fn(),
               },
             },
           ],

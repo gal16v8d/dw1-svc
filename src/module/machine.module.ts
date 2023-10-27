@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { MachineController } from '../controller/machine.controller';
 import { Machine, MachineSchema } from '../model/schema/machine.schema';
+import { CacheService } from '../service/cache.service';
 import { MachineService } from '../service/machine.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -14,6 +15,6 @@ import { FlagServiceModule } from './flag.module';
     MongooseModule.forFeature([{ name: Machine.name, schema: MachineSchema }]),
   ],
   controllers: [MachineController],
-  providers: [MachineService],
+  providers: [MachineService, CacheService],
 })
 export class MachineModule {}

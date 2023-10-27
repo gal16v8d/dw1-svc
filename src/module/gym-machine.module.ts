@@ -7,6 +7,7 @@ import {
   GymMachine,
   GymMachineSchema,
 } from '../model/schema/gym-machine.schema';
+import { CacheService } from '../service/cache.service';
 import { GymMachineService } from '../service/gym-machine.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -19,6 +20,6 @@ import { FlagServiceModule } from './flag.module';
     ]),
   ],
   controllers: [GymMachineController],
-  providers: [GymMachineService],
+  providers: [GymMachineService, CacheService],
 })
 export class GymMachineModule {}

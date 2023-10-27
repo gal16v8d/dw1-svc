@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { StatusController } from '../controller/status.controller';
 import { Status, StatusSchema } from '../model/schema/status.schema';
+import { CacheService } from '../service/cache.service';
 import { StatusService } from '../service/status.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -14,6 +15,6 @@ import { FlagServiceModule } from './flag.module';
     MongooseModule.forFeature([{ name: Status.name, schema: StatusSchema }]),
   ],
   controllers: [StatusController],
-  providers: [StatusService],
+  providers: [StatusService, CacheService],
 })
 export class StatusModule {}

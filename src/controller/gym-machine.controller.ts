@@ -3,6 +3,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { CONSTANTS } from '../const/dw1.const';
 import { GymMachineDto } from '../model/dto/gym-machine.dto';
 import { GymMachine } from '../model/schema/gym-machine.schema';
+import { CacheService } from '../service/cache.service';
 import { GymMachineService } from '../service/gym-machine.service';
 import { GenericController } from './generic.controller';
 
@@ -12,7 +13,10 @@ export class GymMachineController extends GenericController<
   GymMachine,
   GymMachineDto
 > {
-  constructor(readonly gymMachineService: GymMachineService) {
-    super(gymMachineService);
+  constructor(
+    readonly gymMachineService: GymMachineService,
+    readonly cacheService: CacheService,
+  ) {
+    super(gymMachineService, cacheService);
   }
 }

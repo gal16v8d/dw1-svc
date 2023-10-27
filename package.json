@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@nestjs/axios": "^3.0.0",
+    "@nestjs/cache-manager": "^2.1.0",
     "@nestjs/common": "^10.2.2",
     "@nestjs/config": "^3.0.0",
     "@nestjs/core": "^10.2.2",
@@ -32,6 +33,7 @@
     "@nestjs/platform-express": "^10.2.2",
     "@nestjs/swagger": "^7.1.8",
     "@nestjs/throttler": "^4.2.1",
+    "cache-manager": "^5.2.4",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "cluster": "^0.7.7",
@@ -75,7 +77,10 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "**/*.(t|j)s"
+      "**/*.(t|j)s",
+      "!**/*dto*.(t|j)s",
+      "!**/*cluster.service*.(t|j)s",
+      "!**/main.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"

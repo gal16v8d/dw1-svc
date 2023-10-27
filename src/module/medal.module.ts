@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { MedalController } from '../controller/medal.controller';
 import { Medal, MedalSchema } from '../model/schema/medal.schema';
+import { CacheService } from '../service/cache.service';
 import { MedalService } from '../service/medal.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -14,6 +15,6 @@ import { FlagServiceModule } from './flag.module';
     MongooseModule.forFeature([{ name: Medal.name, schema: MedalSchema }]),
   ],
   controllers: [MedalController],
-  providers: [MedalService],
+  providers: [MedalService, CacheService],
 })
 export class MedalModule {}

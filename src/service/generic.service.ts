@@ -17,16 +17,8 @@ export class GenericService<S, R> {
     private readonly populateOpts?: PopulateOptions[],
   ) {}
 
-  populateData(data: S, expanded: boolean) {
-    return expanded && this.populateOpts
-      ? this.model.populate(data, this.populateOpts ?? [])
-      : data;
-  }
-
-  populateDataArr(data: S[], expanded: boolean) {
-    return expanded && this.populateOpts
-      ? this.model.populate(data, this.populateOpts ?? [])
-      : data;
+  getKey(): string {
+    return this.model.modelName;
   }
 
   async create(data: R): Promise<S> {
@@ -51,5 +43,17 @@ export class GenericService<S, R> {
 
   async delete(id: string): Promise<S> {
     return this.model.findByIdAndRemove({ _id: id }).exec();
+  }
+
+  private populateData(data: S, expanded: boolean) {
+    return expanded && this.populateOpts
+      ? this.model.populate(data, this.populateOpts ?? [])
+      : data;
+  }
+
+  private populateDataArr(data: S[], expanded: boolean) {
+    return expanded && this.populateOpts
+      ? this.model.populate(data, this.populateOpts ?? [])
+      : data;
   }
 }

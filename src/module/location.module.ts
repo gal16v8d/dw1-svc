@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { LocationController } from '../controller/location.controller';
 import { Location, LocationSchema } from '../model/schema/location.schema';
+import { CacheService } from '../service/cache.service';
 import { LocationService } from '../service/location.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -16,6 +17,6 @@ import { FlagServiceModule } from './flag.module';
     ]),
   ],
   controllers: [LocationController],
-  providers: [LocationService],
+  providers: [LocationService, CacheService],
 })
 export class LocationModule {}

@@ -3,6 +3,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { CONSTANTS } from '../const/dw1.const';
 import { RestaurantFoodDto } from '../model/dto/restaurant-food.dto';
 import { RestaurantFood } from '../model/schema/restaurant-food.schema';
+import { CacheService } from '../service/cache.service';
 import { RestaurantFoodService } from '../service/restaurant-food.service';
 import { GenericController } from './generic.controller';
 
@@ -12,7 +13,10 @@ export class RestaurantFoodController extends GenericController<
   RestaurantFood,
   RestaurantFoodDto
 > {
-  constructor(readonly restaurantFoodService: RestaurantFoodService) {
-    super(restaurantFoodService);
+  constructor(
+    readonly restaurantFoodService: RestaurantFoodService,
+    readonly cacheService: CacheService,
+  ) {
+    super(restaurantFoodService, cacheService);
   }
 }

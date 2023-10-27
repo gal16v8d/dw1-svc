@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { ExchangeController } from '../controller/exchange.controller';
 import { Exchange, exchangeSchema } from '../model/schema/exchange.schema';
+import { CacheService } from '../service/cache.service';
 import { ExchangeService } from '../service/exchange.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -16,6 +17,6 @@ import { FlagServiceModule } from './flag.module';
     ]),
   ],
   controllers: [ExchangeController],
-  providers: [ExchangeService],
+  providers: [ExchangeService, CacheService],
 })
 export class ExchangeModule {}

@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { TechController } from '../controller/tech.controller';
 import { Tech, TechSchema } from '../model/schema/tech.schema';
+import { CacheService } from '../service/cache.service';
 import { TechService } from '../service/tech.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -14,6 +15,6 @@ import { FlagServiceModule } from './flag.module';
     MongooseModule.forFeature([{ name: Tech.name, schema: TechSchema }]),
   ],
   controllers: [TechController],
-  providers: [TechService],
+  providers: [TechService, CacheService],
 })
 export class TechModule {}

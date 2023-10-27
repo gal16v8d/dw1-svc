@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { RecruitController } from '../controller/recruit.controller';
 import { Recruit, RecruitSchema } from '../model/schema/recruit.schema';
+import { CacheService } from '../service/cache.service';
 import { RecruitService } from '../service/recruit.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -14,6 +15,6 @@ import { FlagServiceModule } from './flag.module';
     MongooseModule.forFeature([{ name: Recruit.name, schema: RecruitSchema }]),
   ],
   controllers: [RecruitController],
-  providers: [RecruitService],
+  providers: [RecruitService, CacheService],
 })
 export class RecruitModule {}

@@ -7,6 +7,7 @@ import {
   Restaurant,
   RestaurantSchema,
 } from '../model/schema/restaurant.schema';
+import { CacheService } from '../service/cache.service';
 import { RestaurantService } from '../service/restaurant.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -19,6 +20,6 @@ import { FlagServiceModule } from './flag.module';
     ]),
   ],
   controllers: [RestaurantController],
-  providers: [RestaurantService],
+  providers: [RestaurantService, CacheService],
 })
 export class RestaurantModule {}

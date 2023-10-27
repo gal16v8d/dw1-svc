@@ -7,6 +7,7 @@ import {
   MeritPoint,
   MeritPointSchema,
 } from '../model/schema/merit-point.schema';
+import { CacheService } from '../service/cache.service';
 import { MeritPointService } from '../service/merit-point.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -19,6 +20,6 @@ import { FlagServiceModule } from './flag.module';
     ]),
   ],
   controllers: [MeritPointController],
-  providers: [MeritPointService],
+  providers: [MeritPointService, CacheService],
 })
 export class MeritPointModule {}

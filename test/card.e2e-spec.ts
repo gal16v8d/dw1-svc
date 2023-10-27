@@ -1,3 +1,4 @@
+import { CacheModule } from '@nestjs/cache-manager';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
@@ -14,6 +15,7 @@ describe('CardController (e2e)', () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [
         ConfigModule.forRoot({ load: [config] }),
+        CacheModule.register({ isGlobal: true, ttl: 0 }),
         MongoModule,
         CardModule,
       ],

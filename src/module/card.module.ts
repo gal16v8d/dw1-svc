@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { CardController } from '../controller/card.controller';
 import { Card, CardSchema } from '../model/schema/card.schema';
+import { CacheService } from '../service/cache.service';
 import { CardService } from '../service/card.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -14,6 +15,6 @@ import { FlagServiceModule } from './flag.module';
     MongooseModule.forFeature([{ name: Card.name, schema: CardSchema }]),
   ],
   controllers: [CardController],
-  providers: [CardService],
+  providers: [CardService, CacheService],
 })
 export class CardModule {}

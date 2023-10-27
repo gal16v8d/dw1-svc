@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from '../config/config';
 import { MenuController } from '../controller/menu.controller';
 import { Menu, MenuSchema } from '../model/schema/menu.schema';
+import { CacheService } from '../service/cache.service';
 import { MenuService } from '../service/menu.service';
 import { FlagServiceModule } from './flag.module';
 
@@ -14,6 +15,6 @@ import { FlagServiceModule } from './flag.module';
     MongooseModule.forFeature([{ name: Menu.name, schema: MenuSchema }]),
   ],
   controllers: [MenuController],
-  providers: [MenuService],
+  providers: [MenuService, CacheService],
 })
 export class MenuModule {}

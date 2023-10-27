@@ -1,3 +1,4 @@
+import { CacheModule } from '@nestjs/cache-manager';
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
@@ -28,6 +29,9 @@ import { TechModule } from './tech.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ load: [config] }),
+    // In-mem cache might not properly work with clusterize
+    // on cluster approach, would be better to use redis cache
+    CacheModule.register({ isGlobal: true, ttl: 0 }),
     MongoModule,
     ThrottlerModule.forRootAsync({
       imports: [ConfigModule],
