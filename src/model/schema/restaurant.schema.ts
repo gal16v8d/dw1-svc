@@ -1,6 +1,6 @@
+import { CONSTANTS } from '@app/const/dw1.const';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
-import { CONSTANTS } from '../../const/dw1.const';
 import { Digimon } from './digimon.schema';
 import { RestaurantFood } from './restaurant-food.schema';
 

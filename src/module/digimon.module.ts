@@ -1,11 +1,11 @@
+import config from '@app/config/config';
+import { DigimonController } from '@app/controller/digimon.controller';
+import { Digimon, DigimonSchema } from '@app/model/schema/digimon.schema';
+import { CacheService } from '@app/service/cache.service';
+import { DigimonService } from '@app/service/digimon.service';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import config from '../config/config';
-import { DigimonController } from '../controller/digimon.controller';
-import { Digimon, DigimonSchema } from '../model/schema/digimon.schema';
-import { CacheService } from '../service/cache.service';
-import { DigimonService } from '../service/digimon.service';
 import { FlagServiceModule } from './flag.module';
 
 @Module({

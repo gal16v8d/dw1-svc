@@ -6,6 +6,9 @@ const int = (val: string | undefined, num: number): number =>
   val ? (isNaN(parseInt(val)) ? num : parseInt(val)) : num;
 
 const config: ConfigFactory<Configuration> = () => ({
+  app: {
+    clusterEnabled: Boolean(process.env.CLUSTER_ENABLED) ?? false,
+  },
   flagClient: {
     baseUrl: process.env.FLAG_CLIENT_URL ?? '',
     appSecKey: process.env.FLAG_API_KEY ?? '',

@@ -1,7 +1,7 @@
+import { RestClientProvider } from '@app/provider/rest-client.provider';
 import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { RestClientProvider } from '../provider/rest-client.provider';
 
 @Module({
   imports: [

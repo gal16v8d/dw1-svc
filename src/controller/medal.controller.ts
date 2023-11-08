@@ -1,10 +1,10 @@
+import { CONSTANTS } from '@app/const/dw1.const';
+import { MedalDto } from '@app/model/dto/medal.dto';
+import { Medal } from '@app/model/schema/medal.schema';
+import { CacheService } from '@app/service/cache.service';
+import { MedalService } from '@app/service/medal.service';
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CONSTANTS } from '../const/dw1.const';
-import { MedalDto } from '../model/dto/medal.dto';
-import { Medal } from '../model/schema/medal.schema';
-import { CacheService } from '../service/cache.service';
-import { MedalService } from '../service/medal.service';
 import { GenericController } from './generic.controller';
 
 @ApiTags(`${CONSTANTS.DB.MEDAL} controller`)

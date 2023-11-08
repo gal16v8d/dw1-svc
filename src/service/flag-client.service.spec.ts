@@ -1,7 +1,7 @@
+import { FlagServiceModule } from '@app/module/flag.module';
+import { RestClientProvider } from '@app/provider/rest-client.provider';
 import { HttpException, HttpStatus } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { FlagServiceModule } from '../module/flag.module';
-import { RestClientProvider } from '../provider/rest-client.provider';
 import { FlagClientService } from './flag-client.service';
 
 describe('FlagService test suite', () => {

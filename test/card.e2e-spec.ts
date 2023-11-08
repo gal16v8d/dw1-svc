@@ -1,12 +1,12 @@
+import config from '@app/config/config';
+import { Card } from '@app/model/schema/card.schema';
+import { CardModule } from '@app/module/card.module';
+import { MongoModule } from '@app/module/mongo.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import { INestApplication } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 import request from 'supertest';
-import config from '../src/config/config';
-import { Card } from '../src/model/schema/card.schema';
-import { CardModule } from '../src/module/card.module';
-import { MongoModule } from '../src/module/mongo.module';
 
 describe('CardController (e2e)', () => {
   let app: INestApplication;

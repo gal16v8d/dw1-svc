@@ -1,6 +1,6 @@
+import { CONSTANTS } from '@app/const/dw1.const';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import { CONSTANTS } from '../../const/dw1.const';
 import MenuTypeEnum from '../enum/menu-type.enum';
 
 @Schema({ collection: CONSTANTS.DB.MENU })

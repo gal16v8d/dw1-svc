@@ -1,6 +1,6 @@
+import { FlagClientService } from '@app/service/flag-client.service';
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { FlagClientService } from '../service/flag-client.service';
 
 @Injectable()
 export class HeaderGuard implements CanActivate {

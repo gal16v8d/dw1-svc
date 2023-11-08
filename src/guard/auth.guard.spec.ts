@@ -1,7 +1,7 @@
+import { AppModule } from '@app/module/app.module';
+import { FlagClientService } from '@app/service/flag-client.service';
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppModule } from '../module/app.module';
-import { FlagClientService } from '../service/flag-client.service';
 import { HeaderGuard } from './auth.guard';
 
 describe('HeaderGuard test suite', () => {

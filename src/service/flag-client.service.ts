@@ -1,7 +1,7 @@
+import { RestClientProvider } from '@app/provider/rest-client.provider';
+import { RestUtil } from '@app/provider/rest-util.provider';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { RestClientProvider } from '../provider/rest-client.provider';
-import { RestUtil } from '../provider/rest-util.provider';
 
 @Injectable()
 export class FlagClientService {

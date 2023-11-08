@@ -1,14 +1,14 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
-import config from '../config/config';
-import { MeritPointController } from '../controller/merit-point.controller';
+import config from '@app/config/config';
+import { MeritPointController } from '@app/controller/merit-point.controller';
 import {
   MeritPoint,
   MeritPointSchema,
-} from '../model/schema/merit-point.schema';
-import { CacheService } from '../service/cache.service';
-import { MeritPointService } from '../service/merit-point.service';
+} from '@app/model/schema/merit-point.schema';
+import { CacheService } from '@app/service/cache.service';
+import { MeritPointService } from '@app/service/merit-point.service';
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { FlagServiceModule } from './flag.module';
 
 @Module({

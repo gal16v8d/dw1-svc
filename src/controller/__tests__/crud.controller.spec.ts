@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import mockCardList from '@app/__mocks__/cardList.json';
+import { HeaderGuard } from '@app/guard/auth.guard';
+import { CacheService } from '@app/service/cache.service';
+import { CardService } from '@app/service/card.service';
 import { CanActivate, ExecutionContext } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Observable } from 'rxjs';
-import mockCardList from '../../__mocks__/cardList.json';
-import { HeaderGuard } from '../../guard/auth.guard';
-import { CacheService } from '../../service/cache.service';
-import { CardService } from '../../service/card.service';
 import { CardController } from '../card.controller';
 
 describe('CRUD Controller test suite', () => {

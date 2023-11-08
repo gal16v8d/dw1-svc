@@ -1,6 +1,6 @@
+import { CONSTANTS } from '@app/const/dw1.const';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
-import { CONSTANTS } from '../../const/dw1.const';
 import ActiveEnum from '../enum/active.enum';
 import TypeEnum from '../enum/type.enum';
 import { Item } from './item.schema';

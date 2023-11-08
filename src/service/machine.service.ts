@@ -1,9 +1,9 @@
+import { CONSTANTS } from '@app/const/dw1.const';
+import { MachineDto } from '@app/model/dto/machine.dto';
+import { Machine, MachineDocument } from '@app/model/schema/machine.schema';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CONSTANTS } from '../const/dw1.const';
-import { MachineDto } from '../model/dto/machine.dto';
-import { Machine, MachineDocument } from '../model/schema/machine.schema';
 import { GenericService } from './generic.service';
 
 @Injectable()

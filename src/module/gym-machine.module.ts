@@ -1,14 +1,14 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
-import config from '../config/config';
-import { GymMachineController } from '../controller/gym-machine.controller';
+import config from '@app/config/config';
+import { GymMachineController } from '@app/controller/gym-machine.controller';
 import {
   GymMachine,
   GymMachineSchema,
-} from '../model/schema/gym-machine.schema';
-import { CacheService } from '../service/cache.service';
-import { GymMachineService } from '../service/gym-machine.service';
+} from '@app/model/schema/gym-machine.schema';
+import { CacheService } from '@app/service/cache.service';
+import { GymMachineService } from '@app/service/gym-machine.service';
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { FlagServiceModule } from './flag.module';
 
 @Module({

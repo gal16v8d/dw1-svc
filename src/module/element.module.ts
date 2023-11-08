@@ -1,11 +1,11 @@
+import config from '@app/config/config';
+import { ElementController } from '@app/controller/element.controller';
+import { Element, ElementSchema } from '@app/model/schema/element.schema';
+import { CacheService } from '@app/service/cache.service';
+import { ElementService } from '@app/service/element.service';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import config from '../config/config';
-import { ElementController } from '../controller/element.controller';
-import { Element, ElementSchema } from '../model/schema/element.schema';
-import { CacheService } from '../service/cache.service';
-import { ElementService } from '../service/element.service';
 import { FlagServiceModule } from './flag.module';
 
 @Module({

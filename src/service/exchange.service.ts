@@ -1,8 +1,8 @@
+import { ExchangeDto } from '@app/model/dto/exchange.dto';
+import { Exchange, ExchangeDocument } from '@app/model/schema/exchange.schema';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { ExchangeDto } from '../model/dto/exchange.dto';
-import { Exchange, ExchangeDocument } from '../model/schema/exchange.schema';
 import { GenericService } from './generic.service';
 
 @Injectable()

@@ -1,10 +1,10 @@
+import { CONSTANTS } from '@app/const/dw1.const';
+import { DigimonDto } from '@app/model/dto/digimon.dto';
+import { Digimon } from '@app/model/schema/digimon.schema';
+import { CacheService } from '@app/service/cache.service';
+import { DigimonService } from '@app/service/digimon.service';
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CONSTANTS } from '../const/dw1.const';
-import { DigimonDto } from '../model/dto/digimon.dto';
-import { Digimon } from '../model/schema/digimon.schema';
-import { CacheService } from '../service/cache.service';
-import { DigimonService } from '../service/digimon.service';
 import { GenericController } from './generic.controller';
 
 @ApiTags(`${CONSTANTS.DB.DIGIMON} controller`)

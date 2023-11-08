@@ -1,10 +1,10 @@
+import { CONSTANTS } from '@app/const/dw1.const';
+import { NameInputDto } from '@app/model/dto/name.input.dto';
+import { Location } from '@app/model/schema/location.schema';
+import { CacheService } from '@app/service/cache.service';
+import { LocationService } from '@app/service/location.service';
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CONSTANTS } from '../const/dw1.const';
-import { NameInputDto } from '../model/dto/name.input.dto';
-import { Location } from '../model/schema/location.schema';
-import { CacheService } from '../service/cache.service';
-import { LocationService } from '../service/location.service';
 import { GenericController } from './generic.controller';
 
 @ApiTags(`${CONSTANTS.DB.LOCATION} controller`)

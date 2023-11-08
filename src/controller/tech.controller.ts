@@ -1,10 +1,10 @@
+import { CONSTANTS } from '@app/const/dw1.const';
+import { TechDto } from '@app/model/dto/tech.dto';
+import { Tech } from '@app/model/schema/tech.schema';
+import { CacheService } from '@app/service/cache.service';
+import { TechService } from '@app/service/tech.service';
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CONSTANTS } from '../const/dw1.const';
-import { TechDto } from '../model/dto/tech.dto';
-import { Tech } from '../model/schema/tech.schema';
-import { CacheService } from '../service/cache.service';
-import { TechService } from '../service/tech.service';
 import { GenericController } from './generic.controller';
 
 @ApiTags(`${CONSTANTS.DB.TECH} controller`)

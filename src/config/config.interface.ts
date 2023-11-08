@@ -1,4 +1,7 @@
 export interface Configuration {
+  app: {
+    clusterEnabled: boolean;
+  };
   flagClient: {
     baseUrl: string;
     appSecKey: string;

@@ -1,12 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { CONSTANTS } from '../const/dw1.const';
-import { GymMachineDto } from '../model/dto/gym-machine.dto';
+import { CONSTANTS } from '@app/const/dw1.const';
+import { GymMachineDto } from '@app/model/dto/gym-machine.dto';
 import {
   GymMachine,
   GymMachineDocument,
-} from '../model/schema/gym-machine.schema';
+} from '@app/model/schema/gym-machine.schema';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { GenericService } from './generic.service';
 
 @Injectable()

@@ -1,8 +1,8 @@
+import { NameInputDto } from '@app/model/dto/name.input.dto';
+import { Location, LocationDocument } from '@app/model/schema/location.schema';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { NameInputDto } from '../model/dto/name.input.dto';
-import { Location, LocationDocument } from '../model/schema/location.schema';
 import { GenericService } from './generic.service';
 
 @Injectable()

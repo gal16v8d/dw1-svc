@@ -1,11 +1,11 @@
+import config from '@app/config/config';
+import { MachineController } from '@app/controller/machine.controller';
+import { Machine, MachineSchema } from '@app/model/schema/machine.schema';
+import { CacheService } from '@app/service/cache.service';
+import { MachineService } from '@app/service/machine.service';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import config from '../config/config';
-import { MachineController } from '../controller/machine.controller';
-import { Machine, MachineSchema } from '../model/schema/machine.schema';
-import { CacheService } from '../service/cache.service';
-import { MachineService } from '../service/machine.service';
 import { FlagServiceModule } from './flag.module';
 
 @Module({

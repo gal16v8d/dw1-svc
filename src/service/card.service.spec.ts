@@ -1,8 +1,8 @@
+import mockList from '@app/__mocks__/cardList.json';
+import { Card } from '@app/model/schema/card.schema';
 import { getModelToken } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Model } from 'mongoose';
-import mockList from '../__mocks__/cardList.json';
-import { Card } from '../model/schema/card.schema';
 import { CardService } from './card.service';
 
 const APP_ID = '1';

@@ -1,9 +1,9 @@
+import { CONSTANTS } from '@app/const/dw1.const';
+import { DigimonDto } from '@app/model/dto/digimon.dto';
+import { Digimon, DigimonDocument } from '@app/model/schema/digimon.schema';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CONSTANTS } from '../const/dw1.const';
-import { DigimonDto } from '../model/dto/digimon.dto';
-import { Digimon, DigimonDocument } from '../model/schema/digimon.schema';
 import { GenericService } from './generic.service';
 
 @Injectable()

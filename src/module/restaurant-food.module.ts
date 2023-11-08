@@ -1,14 +1,14 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
-import config from '../config/config';
-import { RestaurantFoodController } from '../controller/restaurant-food.controller';
+import config from '@app/config/config';
+import { RestaurantFoodController } from '@app/controller/restaurant-food.controller';
 import {
   RestaurantFood,
   RestaurantFoodSchema,
-} from '../model/schema/restaurant-food.schema';
-import { CacheService } from '../service/cache.service';
-import { RestaurantFoodService } from '../service/restaurant-food.service';
+} from '@app/model/schema/restaurant-food.schema';
+import { CacheService } from '@app/service/cache.service';
+import { RestaurantFoodService } from '@app/service/restaurant-food.service';
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 import { FlagServiceModule } from './flag.module';
 
 @Module({

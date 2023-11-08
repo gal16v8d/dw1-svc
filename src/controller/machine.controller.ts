@@ -1,10 +1,10 @@
+import { CONSTANTS } from '@app/const/dw1.const';
+import { MachineDto } from '@app/model/dto/machine.dto';
+import { Machine } from '@app/model/schema/machine.schema';
+import { CacheService } from '@app/service/cache.service';
+import { MachineService } from '@app/service/machine.service';
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CONSTANTS } from '../const/dw1.const';
-import { MachineDto } from '../model/dto/machine.dto';
-import { Machine } from '../model/schema/machine.schema';
-import { CacheService } from '../service/cache.service';
-import { MachineService } from '../service/machine.service';
 import { GenericController } from './generic.controller';
 
 @ApiTags(`${CONSTANTS.DB.MACHINE} controller`)

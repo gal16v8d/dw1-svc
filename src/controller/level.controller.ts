@@ -1,10 +1,10 @@
+import { CONSTANTS } from '@app/const/dw1.const';
+import { NameInputDto } from '@app/model/dto/name.input.dto';
+import { Level } from '@app/model/schema/level.schema';
+import { CacheService } from '@app/service/cache.service';
+import { LevelService } from '@app/service/level.service';
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CONSTANTS } from '../const/dw1.const';
-import { NameInputDto } from '../model/dto/name.input.dto';
-import { Level } from '../model/schema/level.schema';
-import { CacheService } from '../service/cache.service';
-import { LevelService } from '../service/level.service';
 import { GenericController } from './generic.controller';
 
 @ApiTags(`${CONSTANTS.DB.LEVEL} controller`)

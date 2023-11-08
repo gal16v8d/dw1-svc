@@ -1,12 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { CONSTANTS } from '../const/dw1.const';
-import { MeritPointDto } from '../model/dto/merit-point.dto';
+import { CONSTANTS } from '@app/const/dw1.const';
+import { MeritPointDto } from '@app/model/dto/merit-point.dto';
 import {
   MeritPoint,
   MeritPointDocument,
-} from '../model/schema/merit-point.schema';
+} from '@app/model/schema/merit-point.schema';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { GenericService } from './generic.service';
 
 @Injectable()

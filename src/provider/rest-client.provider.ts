@@ -1,3 +1,4 @@
+import { ResponseDto } from '@app/model/dto/response.dto';
 import { HttpService } from '@nestjs/axios';
 import {
   HttpException,
@@ -7,7 +8,6 @@ import {
 } from '@nestjs/common';
 import { AxiosRequestConfig, AxiosResponse, Method, ResponseType } from 'axios';
 import { EmptyError, firstValueFrom } from 'rxjs';
-import { ResponseDto } from '../model/dto/response.dto';
 
 @Injectable()
 export class RestClientProvider {

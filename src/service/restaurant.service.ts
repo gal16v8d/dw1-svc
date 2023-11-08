@@ -1,12 +1,12 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { CONSTANTS } from '../const/dw1.const';
-import { RestaurantDto } from '../model/dto/restaurant.dto';
+import { CONSTANTS } from '@app/const/dw1.const';
+import { RestaurantDto } from '@app/model/dto/restaurant.dto';
 import {
   Restaurant,
   RestaurantDocument,
-} from '../model/schema/restaurant.schema';
+} from '@app/model/schema/restaurant.schema';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { GenericService } from './generic.service';
 
 @Injectable()

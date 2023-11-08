@@ -1,11 +1,11 @@
+import config from '@app/config/config';
+import { RecruitController } from '@app/controller/recruit.controller';
+import { Recruit, RecruitSchema } from '@app/model/schema/recruit.schema';
+import { CacheService } from '@app/service/cache.service';
+import { RecruitService } from '@app/service/recruit.service';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import config from '../config/config';
-import { RecruitController } from '../controller/recruit.controller';
-import { Recruit, RecruitSchema } from '../model/schema/recruit.schema';
-import { CacheService } from '../service/cache.service';
-import { RecruitService } from '../service/recruit.service';
 import { FlagServiceModule } from './flag.module';
 
 @Module({

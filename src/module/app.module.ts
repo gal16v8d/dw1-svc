@@ -1,10 +1,10 @@
+import config from '@app/config/config';
+import { RequestMiddleware } from '@app/middleware/request.middleware';
 import { CacheModule } from '@nestjs/cache-manager';
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
-import config from '../config/config';
-import { RequestMiddleware } from '../middleware/request.middleware';
 import { CardModule } from './card.module';
 import { DigimonModule } from './digimon.module';
 import { ElementModule } from './element.module';

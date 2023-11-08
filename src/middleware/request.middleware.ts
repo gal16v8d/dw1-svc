@@ -1,7 +1,7 @@
+import { CONSTANTS } from '@app/const/dw1.const';
 import { HttpStatus, Injectable, Logger, NestMiddleware } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NextFunction, Request, Response } from 'express';
-import { CONSTANTS } from '../const/dw1.const';
 
 @Injectable()
 export class RequestMiddleware implements NestMiddleware {

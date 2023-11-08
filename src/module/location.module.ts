@@ -1,11 +1,11 @@
+import config from '@app/config/config';
+import { LocationController } from '@app/controller/location.controller';
+import { Location, LocationSchema } from '@app/model/schema/location.schema';
+import { CacheService } from '@app/service/cache.service';
+import { LocationService } from '@app/service/location.service';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import config from '../config/config';
-import { LocationController } from '../controller/location.controller';
-import { Location, LocationSchema } from '../model/schema/location.schema';
-import { CacheService } from '../service/cache.service';
-import { LocationService } from '../service/location.service';
 import { FlagServiceModule } from './flag.module';
 
 @Module({

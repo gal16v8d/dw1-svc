@@ -1,11 +1,11 @@
+import config from '@app/config/config';
+import { RestClientModule } from '@app/module/rest-client.module';
 import { HttpService } from '@nestjs/axios';
 import { HttpException, HttpStatus } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 import { AxiosError, AxiosResponse } from 'axios';
 import { EmptyError, of } from 'rxjs';
-import config from '../config/config';
-import { RestClientModule } from '../module/rest-client.module';
 import { RestClientProvider } from './rest-client.provider';
 
 describe('RestClientProvider', () => {
