@@ -270,7 +270,7 @@ describe('CRUD Services test suite', () => {
                 findByIdAndUpdate: jest.fn().mockReturnValue({
                   exec: jest.fn().mockResolvedValueOnce(mockOne),
                 } as any),
-                findByIdAndRemove: jest.fn().mockReturnValue({
+                findByIdAndDelete: jest.fn().mockReturnValue({
                   exec: jest.fn().mockResolvedValueOnce(mockOne),
                 } as any),
                 exec: jest.fn(),
@@ -319,9 +319,8 @@ describe('CRUD Services test suite', () => {
 
       it(`should delete a ${databaseModel.name}`, async () => {
         // @ts-ignore
-        const data = await dbService.delete(APP_ID);
-        expect(data).toEqual(mockOne);
-        expect(dbModel.findByIdAndRemove).toHaveBeenCalled();
+        await dbService.delete(APP_ID);
+        expect(dbModel.findByIdAndDelete).toHaveBeenCalled();
       });
     });
   });

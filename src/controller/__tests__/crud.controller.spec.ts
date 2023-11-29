@@ -104,8 +104,7 @@ describe('CRUD Controller test suite', () => {
 
       it(`should delete a ${databaseModel.name}`, async () => {
         // @ts-ignore
-        const app = await controller.delete(APP_ID);
-        expect(app).toEqual(mockOne);
+        await controller.delete(APP_ID);
         // @ts-ignore
         expect(service.delete).toHaveBeenCalled();
       });

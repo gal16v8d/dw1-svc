@@ -34,7 +34,7 @@ describe('CardService test suite', () => {
             findByIdAndUpdate: jest.fn().mockReturnValue({
               exec: jest.fn().mockResolvedValueOnce(mockCard),
             } as any),
-            findByIdAndRemove: jest.fn().mockReturnValue({
+            findByIdAndDelete: jest.fn().mockReturnValue({
               exec: jest.fn().mockResolvedValueOnce(mockCard),
             } as any),
             exec: jest.fn(),
@@ -76,8 +76,7 @@ describe('CardService test suite', () => {
   });
 
   it('should delete a card', async () => {
-    const app = await service.delete(APP_ID);
-    expect(app).toEqual(mockCard);
-    expect(model.findByIdAndRemove).toHaveBeenCalled();
+    await service.delete(APP_ID);
+    expect(model.findByIdAndDelete).toHaveBeenCalled();
   });
 });

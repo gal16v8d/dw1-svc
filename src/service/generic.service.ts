@@ -41,8 +41,8 @@ export class GenericService<S, R> {
     return this.model.findByIdAndUpdate(id, data).exec();
   }
 
-  async delete(id: string): Promise<S> {
-    return this.model.findByIdAndRemove({ _id: id }).exec();
+  async delete(id: string): Promise<void> {
+    await this.model.findByIdAndDelete({ _id: id }).exec();
   }
 
   private populateData(data: S, expanded: boolean) {
