@@ -10,7 +10,7 @@ export class HealthController {
   constructor(readonly healthService: HealthService) {}
 
   @Get()
-  getHello(): string {
+  getHello(): Record<string, string> {
     return this.healthService.getHello();
   }
 }

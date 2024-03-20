@@ -17,6 +17,6 @@ describe('HealthService test suite', () => {
   });
 
   it('should get hello response', async () => {
-    expect('Dw1-service is UP').toEqual(service.getHello());
+    expect({ status: 'UP' }).toEqual(service.getHello());
   });
 });

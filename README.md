@@ -48,10 +48,15 @@ $ npm run test:cov
 
 - Can be checked at: [api-testing repo](https://github.com/gal16v8d/api-testing)
 
-## Stay in touch
+## List of cool technologies in use here
 
-- Author - [gal16v8d](https://github.com/gal16v8d)
+- [NestJS](https://nestjs.com)
+- [Mongoose](https://mongoosejs.com)
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+[MIT licensed](LICENSE).
+
+## Stay in touch
+
+- Author - [gal16v8d](https://github.com/gal16v8d)

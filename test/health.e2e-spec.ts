@@ -21,6 +21,6 @@ describe('HealthController (e2e)', () => {
     return request(app.getHttpServer())
       .get('/health')
       .expect(200)
-      .expect('Dw1-service is UP');
+      .expect({ status: 'UP' });
   });
 });
