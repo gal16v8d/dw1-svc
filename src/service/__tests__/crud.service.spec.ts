@@ -74,9 +74,9 @@ describe('CRUD Services test suite', () => {
         type: digimonList[0].type,
         active: digimonList[0].active,
         techFinal: new Types.ObjectId(digimonList[0].techFinal),
-        tech: digimonList[0].tech.map((v) => new Types.ObjectId(v)),
+        tech: digimonList[0].tech.map((v: string) => new Types.ObjectId(v)),
         locationHappy: digimonList[0].locationHappy.map(
-          (v) => new Types.ObjectId(v),
+          (v: string) => new Types.ObjectId(v),
         ),
         locationSad: digimonList[0].locationSad,
         raisable: digimonList[0].raisable,
@@ -249,10 +249,10 @@ describe('CRUD Services test suite', () => {
 
   models.forEach((databaseModel) => {
     describe(`CRUD ${databaseModel.serviceType.name} test suite`, () => {
-      type dbModelType = typeof databaseModel.modelType;
+      type dbModelType = InstanceType<typeof databaseModel.modelType>;
       const requestData = databaseModel.request;
       const mockOne = databaseModel.all[0];
-      let dbService: unknown;
+      let dbService: InstanceType<typeof databaseModel.serviceType>;
       let dbModel: Model<dbModelType>;
 
       beforeEach(async () => {
@@ -297,14 +297,12 @@ describe('CRUD Services test suite', () => {
       });
 
       it(`should return all of ${databaseModel.name}`, async () => {
-        // @ts-ignore
         const data = await dbService.findAll(false);
         expect(data).toEqual(databaseModel.all);
         expect(dbModel.find).toHaveBeenCalled();
       });
 
       it(`should return single ${databaseModel.name}`, async () => {
-        // @ts-ignore
         const data = await dbService.findOne(APP_ID, false);
         expect(data).toEqual(mockOne);
         expect(dbModel.findOne).toHaveBeenCalled();
@@ -318,7 +316,6 @@ describe('CRUD Services test suite', () => {
       });
 
       it(`should delete a ${databaseModel.name}`, async () => {
-        // @ts-ignore
         await dbService.delete(APP_ID);
         expect(dbModel.findByIdAndDelete).toHaveBeenCalled();
       });

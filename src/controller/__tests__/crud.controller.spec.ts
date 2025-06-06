@@ -14,7 +14,7 @@ describe('CRUD Controller test suite', () => {
     canActivate(
       context: ExecutionContext,
     ): boolean | Promise<boolean> | Observable<boolean> {
-      return !!context ?? true;
+      return !!context;
     }
   }
   const models = [
@@ -33,9 +33,9 @@ describe('CRUD Controller test suite', () => {
 
   models.forEach((databaseModel) => {
     describe(`CRUD ${databaseModel.controller.name} test suite`, () => {
-      type dbServiceType = typeof databaseModel.service;
+      type dbServiceType = InstanceType<typeof databaseModel.service>;
       const mockOne = databaseModel.all[0];
-      let controller: unknown;
+      let controller: InstanceType<typeof databaseModel.controller>;
       let service: dbServiceType;
 
       beforeEach(async () => {
@@ -72,9 +72,7 @@ describe('CRUD Controller test suite', () => {
       });
 
       it(`should create a new ${databaseModel.name}`, async () => {
-        // @ts-ignore
         await controller.create(databaseModel.request);
-        // @ts-ignore
         expect(service.create).toHaveBeenCalledWith(databaseModel.request);
       });
 
@@ -82,30 +80,23 @@ describe('CRUD Controller test suite', () => {
         // @ts-ignore
         const apps = await controller.findAll(false);
         expect(apps).toEqual(databaseModel.all);
-        // @ts-ignore
         expect(service.findAll).toHaveBeenCalled();
       });
 
       it(`should return single ${databaseModel.name}`, async () => {
-        // @ts-ignore
         const app = await controller.findOne(APP_ID, false);
         expect(app).toEqual(mockOne);
-        // @ts-ignore
         expect(service.findOne).toHaveBeenCalled();
       });
 
       it(`should update a ${databaseModel.name}`, async () => {
-        // @ts-ignore
         const app = await controller.update(APP_ID, databaseModel.request);
         expect(app).toEqual(mockOne);
-        // @ts-ignore
         expect(service.update).toHaveBeenCalled();
       });
 
       it(`should delete a ${databaseModel.name}`, async () => {
-        // @ts-ignore
         await controller.delete(APP_ID);
-        // @ts-ignore
         expect(service.delete).toHaveBeenCalled();
       });
     });

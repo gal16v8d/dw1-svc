@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const cluster = require('cluster');
 import { Injectable, Logger } from '@nestjs/common';
 import * as os from 'os';

@@ -59,8 +59,11 @@ describe('RestClientProvider', () => {
       });
     try {
       await provider.get(mockServiceName, mockBaseUrl, {});
-    } catch (e) {
-      expect(e.message).toBe(`Service ${mockServiceName} is not responding`);
+    } catch (e: unknown) {
+      expect(e).toBeInstanceOf(HttpException);
+      expect((e as HttpException).message).toBe(
+        `Service ${mockServiceName} is not responding`,
+      );
     }
     expect(mockRestCall).toHaveBeenCalled();
   });
@@ -74,8 +77,11 @@ describe('RestClientProvider', () => {
       });
     try {
       await provider.get(mockServiceName, mockBaseUrl, {});
-    } catch (e) {
-      expect(e.message).toBe(`Unexpected response from ${mockServiceName}`);
+    } catch (e: unknown) {
+      expect(e).toBeInstanceOf(HttpException);
+      expect((e as HttpException).message).toBe(
+        `Unexpected response from ${mockServiceName}`,
+      );
     }
     expect(mockRestCall).toHaveBeenCalled();
   });
@@ -88,8 +94,11 @@ describe('RestClientProvider', () => {
       });
     try {
       await provider.get(mockServiceName, mockBaseUrl, {});
-    } catch (e) {
-      expect(e.message).toBe(`No response from ${mockServiceName}`);
+    } catch (e: unknown) {
+      expect(e).toBeInstanceOf(HttpException);
+      expect((e as HttpException).message).toBe(
+        `No response from ${mockServiceName}`,
+      );
     }
     expect(mockRestCall).toHaveBeenCalled();
   });
@@ -118,8 +127,8 @@ describe('RestClientProvider', () => {
         await provider.get(mockServiceName, mockBaseUrl, {});
       } catch (e) {
         expect(e).toBeInstanceOf(HttpException);
-        expect(e.message).toBe('failed');
-        expect(e.status).toBe(status);
+        expect((e as HttpException).message).toBe('failed');
+        expect((e as HttpException).getStatus()).toBe(status);
       }
       expect(mockRestCall).toHaveBeenCalled();
     },

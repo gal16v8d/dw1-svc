@@ -14,12 +14,12 @@ export class CacheService {
 
   async set(key: string, value: any, ttl?: number): Promise<void> {
     this.cachedKeys.push(key);
-    return this.cacheManager.set(key, value, ttl);
+    await this.cacheManager.set(key, value, ttl);
   }
 
   async delete(key: string): Promise<void> {
     this.cachedKeys = this.cachedKeys.filter((k) => k !== key);
-    return this.cacheManager.del(key);
+    await this.cacheManager.del(key);
   }
 
   async deleteAll(key: string): Promise<void> {
@@ -30,7 +30,7 @@ export class CacheService {
     });
   }
 
-  async getCacheKeys(): Promise<string[]> {
+  getCacheKeys(): Array<string> {
     return this.cachedKeys;
   }
 }

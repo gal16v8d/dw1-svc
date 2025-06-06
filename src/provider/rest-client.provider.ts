@@ -13,7 +13,7 @@ import { EmptyError, firstValueFrom } from 'rxjs';
 export class RestClientProvider {
   constructor(private httpService: HttpService) {}
 
-  async get<T = any>(
+  async get<T = unknown>(
     service: string,
     url: string,
     headers: Record<string, string | string[] | number | boolean | null>,
@@ -21,12 +21,12 @@ export class RestClientProvider {
     return this.prepareRequest<T>(service, url, headers, 'GET');
   }
 
-  private async prepareRequest<T = any>(
+  private async prepareRequest<T = unknown>(
     service: string,
     url: string,
     headers: Record<string, string | string[] | number | boolean | null>,
     method: Method,
-    data?: unknown,
+    data?: T,
     responseType?: ResponseType,
   ) {
     const config: AxiosRequestConfig = {
@@ -39,7 +39,7 @@ export class RestClientProvider {
     return this.performRequest<T>(config, service);
   }
 
-  private async performRequest<T = any>(
+  private async performRequest<T = unknown>(
     config: AxiosRequestConfig,
     service: string,
   ) {
@@ -47,7 +47,10 @@ export class RestClientProvider {
       const serviceResponse: AxiosResponse = await firstValueFrom(
         this.httpService.request<T>(config),
       );
-      return { status: serviceResponse.status, data: serviceResponse?.data };
+      return {
+        status: serviceResponse.status,
+        data: serviceResponse?.data as unknown,
+      };
     } catch (e) {
       this.errorHandler(e, service);
     }

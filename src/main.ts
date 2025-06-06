@@ -21,11 +21,13 @@ async function bootstrap() {
   const pkg = JSON.parse(
     await promises.readFile(join('.', 'package.json'), 'utf-8'),
   );
+  const version = (pkg as unknown as { version?: string })?.version ?? '0.0.0';
+
   app.use(helmet());
   const options = new DocumentBuilder()
     .setTitle('DW1 Service')
     .setDescription('Digimon World 1 PS1 Game API')
-    .setVersion(pkg.version)
+    .setVersion(version)
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('swagger-ui.html', app, document);

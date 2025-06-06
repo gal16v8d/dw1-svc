@@ -36,10 +36,12 @@ import { TechModule } from './tech.module';
     ThrottlerModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        ttl: config.get('server.throttleTtl'),
-        limit: config.get('server.throttleLimit'),
-      }),
+      useFactory: (config: ConfigService) => [
+        {
+          ttl: config.get('server.throttleTtl'),
+          limit: config.get('server.throttleLimit'),
+        },
+      ],
     }),
     HealthModule,
     FlagServiceModule,

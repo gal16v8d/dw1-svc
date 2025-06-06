@@ -67,7 +67,7 @@ export class GenericController<S, R> {
     const cacheData = await this.cache.get(key);
     if (cacheData) {
       this.logger.debug('findOne from cache', { key, cacheData });
-      return cacheData as unknown as S;
+      return cacheData as S;
     }
     this.logger.debug('findOne not found in cache', key);
     const data = await this.service.findOne(id, expanded);
@@ -103,7 +103,7 @@ export class GenericController<S, R> {
     const cacheData = await this.cache.get(key);
     if (cacheData) {
       this.logger.debug('findAll from cache', { key, cacheData });
-      return cacheData as unknown as S[];
+      return cacheData as S[];
     }
     this.logger.debug('findAll not found in cache', key);
     const data = await this.service.findAll(expanded);

@@ -1,3 +1,4 @@
+import { ResponseDto } from '@app/model/dto/response.dto';
 import { RestClientProvider } from '@app/provider/rest-client.provider';
 import { RestUtil } from '@app/provider/rest-util.provider';
 import { Injectable } from '@nestjs/common';
@@ -25,7 +26,7 @@ export class FlagClientService {
         }),
         { 'x-api-key': this.configService.get<string>('flagClient.appSecKey') },
       )
-      .then((v) => v?.data?.value)
+      .then((v: ResponseDto) => (v?.data as { value: boolean })?.value)
       .catch(() => false);
   }
 }
