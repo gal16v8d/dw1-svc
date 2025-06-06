@@ -56,15 +56,20 @@ export class RestClientProvider {
     }
   }
 
-  private errorHandler(e: any, service: string) {
+  private errorHandler(e: unknown, service: string) {
     if (e instanceof EmptyError) {
       throw new InternalServerErrorException(`No response from ${service}`);
-    } else if (e?.code === 'ECONNREFUSED') {
+    } else if (
+      ['ECONNREFUSED', 'ENOTFOUND'].includes(
+        (e as { code?: string })?.code || '',
+      )
+    ) {
       throw new ServiceUnavailableException(
         `Service ${service} is not responding`,
       );
-    } else if (e.response) {
-      throw new HttpException(e.response?.data ?? '', e.response.status);
+    } else if ((e as { response: ResponseDto })?.response) {
+      const excInfo = (e as { response: ResponseDto }).response;
+      throw new HttpException(excInfo?.data ?? '', excInfo.status);
     } else {
       throw new InternalServerErrorException(
         `Unexpected response from ${service}`,

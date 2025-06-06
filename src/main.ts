@@ -18,6 +18,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const pkg = JSON.parse(
     await promises.readFile(join('.', 'package.json'), 'utf-8'),
   );
@@ -35,6 +36,9 @@ async function bootstrap() {
   await app.listen(configService.get('server.port'));
 }
 
-process.env.CLUSTER_ENABLED == 'true'
-  ? ClusterService.clusterize(bootstrap)
-  : bootstrap();
+if (process.env.CLUSTER_ENABLED == 'true') {
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
+  ClusterService.clusterize(bootstrap);
+} else {
+  void bootstrap();
+}

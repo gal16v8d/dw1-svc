@@ -7,6 +7,7 @@ import { INestApplication } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 import request from 'supertest';
+import { App } from 'supertest/types';
 
 describe('CardController (e2e)', () => {
   let app: INestApplication;
@@ -28,14 +29,14 @@ describe('CardController (e2e)', () => {
   afterAll(async () => await app.close());
 
   it('/cards (GET)', () => {
-    return request(app.getHttpServer())
+    return request(app.getHttpServer() as unknown as App)
       .get('/cards')
       .expect(200)
       .expect((body) => Array.isArray(body) && body[0] instanceof Card);
   });
 
   it('/cards/{id} (GET)', () => {
-    return request(app.getHttpServer())
+    return request(app.getHttpServer() as unknown as App)
       .get('/cards/617e13e0865f0a80c9b3f92e')
       .expect(200)
       .expect((body) => body instanceof Card);

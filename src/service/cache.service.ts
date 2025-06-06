@@ -24,10 +24,10 @@ export class CacheService {
 
   async deleteAll(key: string): Promise<void> {
     const toDelete = this.cachedKeys.filter((k) => k.startsWith(key));
-    toDelete.forEach((key) => {
+    for (const key of toDelete) {
       this.cachedKeys = this.cachedKeys.filter((k) => k !== key);
-      this.cacheManager.del(key);
-    });
+      await this.cacheManager.del(key);
+    }
   }
 
   getCacheKeys(): Array<string> {

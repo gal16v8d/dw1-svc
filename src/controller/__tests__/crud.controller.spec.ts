@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import mockCardList from '@app/__mocks__/cardList.json';
 import { HeaderGuard } from '@app/guard/auth.guard';

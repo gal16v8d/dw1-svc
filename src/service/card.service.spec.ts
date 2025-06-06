@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import mockList from '@app/__mocks__/cardList.json';
 import { Card } from '@app/model/schema/card.schema';
 import { getModelToken } from '@nestjs/mongoose';

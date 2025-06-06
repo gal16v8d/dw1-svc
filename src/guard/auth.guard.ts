@@ -10,7 +10,9 @@ export class HeaderGuard implements CanActivate {
   ) {}
 
   async canActivate(context: ExecutionContext) {
-    const request = context.switchToHttp().getRequest();
+    const request: { headers?: Record<string, unknown> } = context
+      .switchToHttp()
+      .getRequest();
     const secEnabled: boolean =
       await this.flagSvc.getFlagValue('DW1_SEC_ENABLED');
     return (

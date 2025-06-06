@@ -9,6 +9,9 @@ import { EmptyError, of } from 'rxjs';
 import { RestClientProvider } from './rest-client.provider';
 
 describe('RestClientProvider', () => {
+  type StatusTestData = {
+    status: HttpStatus;
+  };
   const okResponse: AxiosResponse<string> = {
     data: 'Ok',
     headers: {},
@@ -103,11 +106,10 @@ describe('RestClientProvider', () => {
     expect(mockRestCall).toHaveBeenCalled();
   });
 
-  it.each`
-    status
-    ${HttpStatus.BAD_REQUEST}
-    ${HttpStatus.UNAUTHORIZED}
-  `(
+  it.each<StatusTestData>([
+    { status: HttpStatus.BAD_REQUEST },
+    { status: HttpStatus.UNAUTHORIZED },
+  ])(
     'should map and re-throw the rest client error - $status',
     async ({ status }) => {
       const badAxiosResponse = {

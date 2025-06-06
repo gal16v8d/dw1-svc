@@ -1,5 +1,5 @@
-const cluster = require('cluster');
 import { Injectable, Logger } from '@nestjs/common';
+import * as cluster from 'cluster';
 import * as os from 'os';
 import * as process from 'process';
 
@@ -9,12 +9,14 @@ const cpus = os.cpus().length;
 @Injectable()
 export class ClusterService {
   static clusterize(callback: () => void): void {
-    if (cluster.isPrimary) {
+    const defaultCluster = cluster.default;
+    if (defaultCluster.isPrimary) {
       logger.log(`Primary ${process.pid} start!`);
       for (let i = 0; i < cpus; i++) {
-        cluster.fork();
+        defaultCluster.fork();
       }
-      cluster.on('exit', (worker, code, signal) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      defaultCluster.on('exit', (worker, code, signal) => {
         logger.log(`worker ${worker.process.pid} exit!`);
       });
     } else {

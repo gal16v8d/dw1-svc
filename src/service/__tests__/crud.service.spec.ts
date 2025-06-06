@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import cardList from '@app/__mocks__/cardList.json';
 import digimonList from '@app/__mocks__/digimonList.json';
