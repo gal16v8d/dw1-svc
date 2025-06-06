@@ -61,7 +61,7 @@ describe('GlobalExceptionFIlter', () => {
       new BadRequestException('Missing required header x-api-key'),
       mockArgHost,
     );
-    expect(mockJson).toBeCalledWith({
+    expect(mockJson).toHaveBeenCalledWith({
       status: HttpStatus.BAD_REQUEST,
       path: 'test-url',
       message: 'Missing required header x-api-key',
@@ -70,7 +70,7 @@ describe('GlobalExceptionFIlter', () => {
 
   it('should log and filter the custom exception', () => {
     excFilter.catch(new TypeError('Custom error'), mockArgHost);
-    expect(mockJson).toBeCalledWith({
+    expect(mockJson).toHaveBeenCalledWith({
       status: HttpStatus.INTERNAL_SERVER_ERROR,
       path: 'test-url',
       message: 'Internal server error',
