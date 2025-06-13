@@ -49,7 +49,7 @@ export class GenericController<S, R> {
       new ParseBoolPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
     )
     expanded: boolean,
-  ): Promise<S[]> {
+  ): Promise<Array<S>> {
     return this.findAll(expanded);
   }
 
@@ -63,14 +63,20 @@ export class GenericController<S, R> {
     )
     expanded: boolean,
   ): Promise<S> {
-    const key = `${this.service.getKey()}-${id}-${expanded}`;
+    const key = `${this.service.getKey(expanded)}-${id}`;
+    this.logger.debug(`Cache key is ${key}`);
     const cacheData = await this.cache.get(key);
     if (cacheData) {
       this.logger.debug('findOne from cache', { key, cacheData });
       return cacheData as S;
     }
     this.logger.debug('findOne not found in cache', key);
-    const data = await this.service.findOne(id, expanded);
+    let data: S;
+    if (expanded) {
+      data = await this.service.findOneExpanded(id);
+    } else {
+      data = await this.service.findOne(id);
+    }
     this.checkExistence(data);
     await this.cache.set(key, data);
     return data;
@@ -97,16 +103,21 @@ export class GenericController<S, R> {
     }
   }
 
-  private async findAll(expanded: boolean): Promise<S[]> {
-    const key = this.service.getKey();
+  private async findAll(expanded: boolean): Promise<Array<S>> {
+    const key = this.service.getKey(expanded);
     this.logger.debug(`Cache key is ${key}`);
     const cacheData = await this.cache.get(key);
     if (cacheData) {
       this.logger.debug('findAll from cache', { key, cacheData });
-      return cacheData as S[];
+      return cacheData as Array<S>;
     }
     this.logger.debug('findAll not found in cache', key);
-    const data = await this.service.findAll(expanded);
+    let data: Array<S>;
+    if (expanded) {
+      data = await this.service.findAllExpanded();
+    } else {
+      data = await this.service.findAll();
+    }
     await this.cache.set(key, data);
     return data;
   }

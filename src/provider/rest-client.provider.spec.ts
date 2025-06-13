@@ -12,6 +12,9 @@ describe('RestClientProvider', () => {
   type StatusTestData = {
     status: HttpStatus;
   };
+  type ErrorCodeTestData = {
+    code: string;
+  };
   const okResponse: AxiosResponse<string> = {
     data: 'Ok',
     headers: {},
@@ -53,26 +56,29 @@ describe('RestClientProvider', () => {
     expect(mockRestCall).toHaveBeenCalled();
   });
 
-  it('should return service unavailable if ECONNREFUSED', async () => {
-    const error: AxiosError = { ...badResponse, code: 'ECONNREFUSED' };
-    const mockRestCall = jest
-      .spyOn(httpService, 'request')
-      .mockImplementationOnce(() => {
-        throw error;
-      });
-    try {
-      await provider.get(mockServiceName, mockBaseUrl, {});
-    } catch (e: unknown) {
-      expect(e).toBeInstanceOf(HttpException);
-      expect((e as HttpException).message).toBe(
-        `Service ${mockServiceName} is not responding`,
-      );
-    }
-    expect(mockRestCall).toHaveBeenCalled();
-  });
+  it.each<ErrorCodeTestData>([{ code: 'ECONNREFUSED' }, { code: 'ENOTFOUND' }])(
+    'should return service unavailable if $code',
+    async ({ code }) => {
+      const error: AxiosError = { ...badResponse, code };
+      const mockRestCall = jest
+        .spyOn(httpService, 'request')
+        .mockImplementationOnce(() => {
+          throw error;
+        });
+      try {
+        await provider.get(mockServiceName, mockBaseUrl, {});
+      } catch (e: unknown) {
+        expect(e).toBeInstanceOf(HttpException);
+        expect((e as HttpException).message).toBe(
+          `Service ${mockServiceName} is not responding`,
+        );
+      }
+      expect(mockRestCall).toHaveBeenCalled();
+    },
+  );
 
   it('should return internal error if unexpected error', async () => {
-    const error: AxiosError = { ...badResponse, code: 'ENOTFOUND' };
+    const error: AxiosError = { ...badResponse, code: 'EBADGATEWAY' };
     const mockRestCall = jest
       .spyOn(httpService, 'request')
       .mockImplementationOnce(() => {

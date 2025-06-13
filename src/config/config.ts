@@ -2,8 +2,11 @@ import { ConfigFactory } from '@nestjs/config';
 import { CONSTANTS } from '../const/dw1.const';
 import { Configuration } from './config.interface';
 
-const int = (val: string | undefined, num: number): number =>
-  val ? (isNaN(parseInt(val)) ? num : parseInt(val)) : num;
+const toInt = (val: string, defaultValue: number): number =>
+  isNaN(parseInt(val)) ? defaultValue : parseInt(val);
+
+const int = (val: string | undefined, defaultValue: number): number =>
+  val ? toInt(val, defaultValue) : defaultValue;
 
 const config: ConfigFactory<Configuration> = () => ({
   app: {
@@ -16,7 +19,12 @@ const config: ConfigFactory<Configuration> = () => ({
     appSecKey: process.env.FLAG_API_KEY ?? '',
   },
   http: {
+    maxRedirects: int(process.env.MAX_REDIRECTS, 3),
     timeout: int(process.env.HTTP_TIME_OUT, 5000),
+    clientTimeout: int(process.env.CLIENT_TIME_OUT, 60000),
+    clientKeepAlive: int(process.env.CLIENT_KEEP_ALIVE, 30000),
+    clientMaxSockets: int(process.env.CLIENT_MAX_SOCKETS, 20),
+    clientFreeSockets: int(process.env.CLIENT_FREE_SOCKETS, 10),
   },
   meta: {
     appId: process.env.DW1_APP_ID ?? '',

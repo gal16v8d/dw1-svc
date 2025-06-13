@@ -268,12 +268,14 @@ describe('CRUD Services test suite', () => {
                 create: jest.fn().mockResolvedValue(mockOne),
                 find: jest.fn().mockResolvedValue(databaseModel.all),
                 findOne: jest.fn().mockResolvedValue(mockOne),
+                findOneExpanded: jest.fn().mockResolvedValue(mockOne),
                 findByIdAndUpdate: jest.fn().mockReturnValue({
                   exec: jest.fn().mockResolvedValueOnce(mockOne),
                 } as any),
                 findByIdAndDelete: jest.fn().mockReturnValue({
                   exec: jest.fn().mockResolvedValueOnce(mockOne),
                 } as any),
+                populate: jest.fn().mockResolvedValueOnce(mockOne),
                 exec: jest.fn(),
               },
             },
@@ -298,15 +300,29 @@ describe('CRUD Services test suite', () => {
       });
 
       it(`should return all of ${databaseModel.name}`, async () => {
-        const data = await dbService.findAll(false);
+        const data = await dbService.findAll();
         expect(data).toEqual(databaseModel.all);
         expect(dbModel.find).toHaveBeenCalled();
       });
 
+      it(`should return all of ${databaseModel.name} expanded`, async () => {
+        const data = await dbService.findAll();
+        expect(dbModel.find).toHaveBeenCalled();
+        expect(data).toBeDefined();
+        expect(data).toBeInstanceOf(Array);
+      });
+
       it(`should return single ${databaseModel.name}`, async () => {
-        const data = await dbService.findOne(APP_ID, false);
+        const data = await dbService.findOne(APP_ID);
         expect(data).toEqual(mockOne);
         expect(dbModel.findOne).toHaveBeenCalled();
+      });
+
+      it(`should return single ${databaseModel.name} expanded`, async () => {
+        const data = await dbService.findOneExpanded(APP_ID);
+        expect(dbModel.findOne).toHaveBeenCalled();
+        expect(data).toBeDefined();
+        expect(data).toBeInstanceOf(Object);
       });
 
       it(`should update a ${databaseModel.name}`, async () => {

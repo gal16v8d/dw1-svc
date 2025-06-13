@@ -17,7 +17,7 @@ export class RestUtil {
   }
 
   private convertToString(
-    value: string | string[] | number | boolean | null,
+    value: Array<string> | string | number | boolean | null,
   ): string {
     if (value === null || value === undefined) {
       return '';

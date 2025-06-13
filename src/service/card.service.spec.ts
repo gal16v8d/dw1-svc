@@ -6,7 +6,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { Model } from 'mongoose';
 import { CardService } from './card.service';
 
-const APP_ID = '1';
+const ID = '1';
 
 // This one should be covered by crud.service.spec.ts
 // but keeping it in case a rollback is needed
@@ -53,31 +53,44 @@ describe('CardService test suite', () => {
   });
 
   it('should insert a new card', async () => {
-    const newApp = await service.create(requestData);
-    expect(newApp).toEqual(mockCard);
+    const data = await service.create(requestData);
+    expect(data).toEqual(mockCard);
     expect(model.create).toHaveBeenCalled();
   });
 
   it('should return all cards', async () => {
-    const apps = await service.findAll(false);
-    expect(apps).toEqual(mockList);
+    const data = await service.findAll();
+    expect(data).toEqual(mockList);
     expect(model.find).toHaveBeenCalled();
   });
 
+  it('should return all cards expanded', async () => {
+    const data = await service.findAllExpanded();
+    expect(model.find).toHaveBeenCalled();
+    expect(data).toBeDefined();
+    expect(data).toBeInstanceOf(Array);
+  });
+
   it('should return single card', async () => {
-    const app = await service.findOne(APP_ID, false);
-    expect(app).toEqual(mockCard);
+    const data = await service.findOne(ID);
+    expect(data).toEqual(mockCard);
+    expect(model.findOne).toHaveBeenCalled();
+  });
+
+  it('should return single card expanded', async () => {
+    const data = await service.findOneExpanded(ID);
+    expect(data).toEqual(mockCard);
     expect(model.findOne).toHaveBeenCalled();
   });
 
   it('should update a card', async () => {
-    const app = await service.update(APP_ID, requestData);
-    expect(app).toEqual(mockCard);
+    const data = await service.update(ID, requestData);
+    expect(data).toEqual(mockCard);
     expect(model.findByIdAndUpdate).toHaveBeenCalled();
   });
 
   it('should delete a card', async () => {
-    await service.delete(APP_ID);
+    await service.delete(ID);
     expect(model.findByIdAndDelete).toHaveBeenCalled();
   });
 });

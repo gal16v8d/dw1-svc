@@ -6,12 +6,12 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class FlagClientService {
-  private flagSvcBaseUrl: string;
+  private readonly flagSvcBaseUrl: string;
 
   constructor(
-    private configService: ConfigService,
-    private restUtil: RestUtil,
-    private restClientProvider: RestClientProvider,
+    private readonly configService: ConfigService,
+    private readonly restUtil: RestUtil,
+    private readonly restClientProvider: RestClientProvider,
   ) {
     this.flagSvcBaseUrl = this.configService.get<string>('flagClient.baseUrl');
   }

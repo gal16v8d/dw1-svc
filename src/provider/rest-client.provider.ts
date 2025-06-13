@@ -11,12 +11,12 @@ import { EmptyError, firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class RestClientProvider {
-  constructor(private httpService: HttpService) {}
+  constructor(private readonly httpService: HttpService) {}
 
   async get<T = unknown>(
     service: string,
     url: string,
-    headers: Record<string, string | string[] | number | boolean | null>,
+    headers: Record<string, Array<string> | string | number | boolean | null>,
   ): Promise<ResponseDto> {
     return this.prepareRequest<T>(service, url, headers, 'GET');
   }
@@ -24,7 +24,7 @@ export class RestClientProvider {
   private async prepareRequest<T = unknown>(
     service: string,
     url: string,
-    headers: Record<string, string | string[] | number | boolean | null>,
+    headers: Record<string, Array<string> | string | number | boolean | null>,
     method: Method,
     data?: T,
     responseType?: ResponseType,
