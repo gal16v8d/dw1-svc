@@ -13,7 +13,7 @@ export class FlagClientService {
     private readonly restUtil: RestUtil,
     private readonly restClientProvider: RestClientProvider,
   ) {
-    this.flagSvcBaseUrl = this.configService.get<string>('flagClient.baseUrl');
+    this.flagSvcBaseUrl = this.configService.get<string>('flagClient.baseUrl')!;
   }
 
   async getFlagValue(flagName: string): Promise<boolean> {
@@ -21,10 +21,12 @@ export class FlagClientService {
       .get(
         'flag-svc',
         this.restUtil.appendQueryParams(`${this.flagSvcBaseUrl}/flags`, {
-          appId: this.configService.get<string>('meta.appId'),
+          appId: this.configService.get<string>('meta.appId')!,
           name: flagName,
         }),
-        { 'x-api-key': this.configService.get<string>('flagClient.appSecKey') },
+        {
+          'x-api-key': this.configService.get<string>('flagClient.appSecKey')!,
+        },
       )
       .then((v: ResponseDto) => (v?.data as { value: boolean })?.value)
       .catch(() => false);

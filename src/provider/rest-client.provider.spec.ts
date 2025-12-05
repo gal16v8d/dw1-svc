@@ -4,7 +4,7 @@ import { HttpService } from '@nestjs/axios';
 import { HttpException, HttpStatus } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
-import { AxiosError, AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import { EmptyError, of } from 'rxjs';
 import { RestClientProvider } from './rest-client.provider';
 
@@ -18,7 +18,7 @@ describe('RestClientProvider', () => {
   const okResponse: AxiosResponse<string> = {
     data: 'Ok',
     headers: {},
-    config: undefined,
+    config: {} as InternalAxiosRequestConfig,
     status: HttpStatus.OK,
     statusText: 'Ok',
   };
@@ -121,7 +121,7 @@ describe('RestClientProvider', () => {
       const badAxiosResponse = {
         data: 'failed',
         headers: {},
-        config: undefined,
+        config: {} as InternalAxiosRequestConfig,
         status,
         statusText: 'failed',
       };

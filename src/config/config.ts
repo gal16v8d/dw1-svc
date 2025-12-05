@@ -33,7 +33,7 @@ const config: ConfigFactory<Configuration> = () => ({
     env: process.env.ENV ?? CONSTANTS.ENVIRONMENT.DEV,
   },
   server: {
-    dbUrl: process.env.DB_DW1,
+    dbUrl: process.env.DB_DW1 ?? '',
     port: int(process.env.PORT, 8100),
     throttleLimit: int(process.env.THROTTLE_LIMIT, 100),
     throttleTtl: int(process.env.THROTTLE_TTL, 60),

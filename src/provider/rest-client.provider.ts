@@ -56,7 +56,7 @@ export class RestClientProvider {
     }
   }
 
-  private errorHandler(e: unknown, service: string) {
+  private errorHandler(e: unknown, service: string): never {
     if (e instanceof EmptyError) {
       throw new InternalServerErrorException(`No response from ${service}`);
     } else if (

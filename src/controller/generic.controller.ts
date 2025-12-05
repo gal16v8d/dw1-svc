@@ -17,6 +17,7 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
+import { Document, UpdateQuery } from 'mongoose';
 
 /**
  * Include the basic CRUD operations for any controller.
@@ -62,7 +63,7 @@ export class GenericController<S, R> {
       new ParseBoolPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
     )
     expanded: boolean,
-  ): Promise<S> {
+  ): Promise<S | null> {
     const key = `${this.service.getKey(expanded)}-${id}`;
     this.logger.debug(`Cache key is ${key}`);
     const cacheData = await this.cache.get(key);
@@ -71,7 +72,7 @@ export class GenericController<S, R> {
       return cacheData as S;
     }
     this.logger.debug('findOne not found in cache', key);
-    let data: S;
+    let data: S | null;
     if (expanded) {
       data = await this.service.findOneExpanded(id);
     } else {
@@ -83,8 +84,12 @@ export class GenericController<S, R> {
   }
 
   @Put(':id')
-  async update(@Param('id') id: string, @Body() requestData: R): Promise<S> {
-    const data = await this.service.update(id, requestData);
+  async update(
+    @Param('id') id: string,
+    @Body() requestData: R,
+  ): Promise<S | null> {
+    const payload = requestData as unknown as UpdateQuery<S & Document>;
+    const data = await this.service.update(id, payload);
     this.checkExistence(data);
     await this.cache.deleteAll(this.service.getKey());
     return data;
@@ -97,7 +102,7 @@ export class GenericController<S, R> {
     await this.cache.deleteAll(this.service.getKey());
   }
 
-  private checkExistence(data: S) {
+  private checkExistence(data: S | null) {
     if (!data) {
       throw new NotFoundException();
     }

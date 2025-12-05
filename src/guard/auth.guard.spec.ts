@@ -58,7 +58,7 @@ describe('HeaderGuard test suite', () => {
       .spyOn(flagSvc, 'getFlagValue')
       .mockResolvedValue(true);
     const result = await guard.canActivate(mockArgHost);
-    expect(mockFlagSvc).toBeCalled();
+    expect(mockFlagSvc).toHaveBeenCalled();
     expect(result).toBeFalsy();
   });
 
@@ -67,7 +67,7 @@ describe('HeaderGuard test suite', () => {
       .spyOn(flagSvc, 'getFlagValue')
       .mockResolvedValue(false);
     const result = await guard.canActivate(mockArgHost);
-    expect(mockFlagSvc).toBeCalled();
+    expect(mockFlagSvc).toHaveBeenCalled();
     expect(result).toBeTruthy();
   });
 });

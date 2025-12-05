@@ -52,7 +52,7 @@ describe('FlagService test suite', () => {
         () => new HttpException('Error', HttpStatus.SERVICE_UNAVAILABLE),
       );
     const result = await flagService.getFlagValue(TEST_FLAG);
-    expect(mockFlagSvc).toBeCalled();
+    expect(mockFlagSvc).toHaveBeenCalled();
     expect(result).toBeFalsy();
   });
 });

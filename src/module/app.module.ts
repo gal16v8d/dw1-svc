@@ -38,8 +38,8 @@ import { TechModule } from './tech.module';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => [
         {
-          ttl: config.get('server.throttleTtl'),
-          limit: config.get('server.throttleLimit'),
+          ttl: config.get('server.throttleTtl')!,
+          limit: config.get('server.throttleLimit')!,
         },
       ],
     }),
